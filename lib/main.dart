@@ -38,8 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
       joystick: Joystick(
         directional: JoystickDirectional(),
       ), // required
-      map: WorldMapByTiled('mapa0.json', forceTileSize: Vector2(16, 16)),
-      cameraConfig: CameraConfig(),
+      map: WorldMapByTiled('mapa.json', forceTileSize: Vector2(16, 16)),
+      cameraConfig: CameraConfig(zoom: 5),
     );
   }
 }

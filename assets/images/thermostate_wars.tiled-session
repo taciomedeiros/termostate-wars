@@ -1,0 +1,33 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "mapa.json": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 187.33333333333331,
+                "y": 268
+            }
+        }
+    },
+    "last.imagePath": "/Users/tacio/Downloads/SampleFiles",
+    "map.lastUsedFormat": "json",
+    "map.width": 20,
+    "openFiles": [
+    ],
+    "project": "thermostate_wars.tiled-project",
+    "recentFiles": [
+        "mapa.json"
+    ],
+    "tileset.lastUsedFormat": "json",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

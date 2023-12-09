@@ -23,7 +23,7 @@ extension PlayerSpriteVector on PlayerSpriteRow {
   }
 }
 
-enum FireEnemySpriteRow { idleRight, walkRight, attackRight, attackDown }
+enum FireEnemySpriteRow { idleRight, walkRight, attackRight, attackDown, die }
 
 extension FireSpriteVector on FireEnemySpriteRow {
   Vector2 get vector {
@@ -36,6 +36,8 @@ extension FireSpriteVector on FireEnemySpriteRow {
         return Vector2(0, 21 * 64 + 3 * 192);
       case FireEnemySpriteRow.attackDown:
         return Vector2(0, 21 * 64 + 2 * 192);
+      case FireEnemySpriteRow.die:
+        return Vector2(0, 20 * 64);
       default:
         throw Exception('no sprite found');
     }

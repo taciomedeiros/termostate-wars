@@ -14,6 +14,12 @@ class EnemyCreator extends TimerComponent with HasGameRef {
   double blueAtack = 10;
   double redAtack = 10;
 
+  Map<int, int> enemiesByStage = {
+    1: 20,
+    2: 40,
+    3: 80,
+  };
+
   //final _halfWidth = Red.initialSize.x / 2;
 
   EnemyCreator(this.worldSize) : super(period: 2, repeat: true);

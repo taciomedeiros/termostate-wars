@@ -1,6 +1,8 @@
 import 'package:bonfire/bonfire.dart';
 import 'sprite_sheet_mapper.dart';
 
+const double attackAnimationStepTime = 0.05;
+
 enum PlayerAnimation { attackRight, attackDown, attackUp, die }
 
 class PlayerSpriteSheet {
@@ -28,7 +30,7 @@ class PlayerSpriteSheet {
         SpriteAnimationData.sequenced(
           texturePosition: PlayerSpriteRow.attackRight.vector,
           amount: 6,
-          stepTime: 0.1,
+          stepTime: attackAnimationStepTime,
           textureSize: Vector2.all(192),
         ),
       );
@@ -37,7 +39,7 @@ class PlayerSpriteSheet {
         SpriteAnimationData.sequenced(
           texturePosition: PlayerSpriteRow.attackDown.vector,
           amount: 6,
-          stepTime: 0.1,
+          stepTime: attackAnimationStepTime,
           textureSize: Vector2.all(192),
         ),
       );
@@ -46,7 +48,7 @@ class PlayerSpriteSheet {
         SpriteAnimationData.sequenced(
           texturePosition: PlayerSpriteRow.attackUp.vector,
           amount: 9,
-          stepTime: 0.1,
+          stepTime: attackAnimationStepTime,
           textureSize: Vector2.all(192),
         ),
       );

@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/services.dart';
+import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/shared/player_sprite_sheet.dart';
 
 // not sure if we'll keep with this
@@ -92,13 +93,6 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     super.update(dt);
   }
 
-  // void execMeleeAttack(double attack) {
-  //   simpleAttackMelee(
-  //       damage: attack,
-  //       animationRight: PlayerSpriteSheet.attackRight,
-  //       size: Vector2.all(32));
-  // }
-
   void _playAttackAnimation() {
     Vector2 definedSize = Vector2.all(48);
     Vector2 offset = Vector2.all(-16);
@@ -133,23 +127,17 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
       default:
         animation?.playOnceOther(
           PlayerAnimation.die,
-          size: definedSize,
-          offset: offset,
-          flipY: true,
+          size: definedSize, // the bug is here
+          offset: offset, // the bug is here
         );
     }
   }
 
   void execAttack() {
     _playAttackAnimation();
-    /*simpleAttackMelee(
-      size: Vector2.all(tileSize * 0.62),
-      damage: attack / 3,
-      interval: 300,
-      animationRight: EnemySpriteSheet.enemyAttackEffectRight(),
-      execute: () {
-        Sounds.attackEnemyMelee();
-      },
-    );*/
+    simpleAttackMelee(
+      size: Vector2.all(tileSize * 1),
+      damage: attack,
+    );
   }
 }

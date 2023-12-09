@@ -1,11 +1,13 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/shared/player_sprite_sheet.dart';
 
+// not sure if we'll keep with this
 enum PlayerAttackType {
   attackMelee,
   attackRange,
 }
 
+// good to track during update to control actions
 enum PlayerState {
   wait,
   walk,
@@ -25,7 +27,7 @@ class MainChar extends SimplePlayer {
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
           size: Vector2.all(64),
           position: position,
-          speed: 1,
+          speed: 64,
           life: 200,
         ) {
     setupMovementByJoystick(intensityEnabled: true);
@@ -35,5 +37,30 @@ class MainChar extends SimplePlayer {
     //     color: Colors.transparent,
     //   ),
     // );
+  }
+  @override
+  void onJoystickChangeDirectional(JoystickDirectionalEvent event) {
+    if (hasGameRef && gameRef.sceneBuilderStatus.isRunning) {
+      return;
+    }
+    super.onJoystickChangeDirectional(event);
+  }
+
+  @override
+  void onJoystickAction(JoystickActionEvent event) {
+    // if (hasGameRef && gameRef.sceneBuilderStatus.isRunning || isDead) {
+    //   return;
+    // }
+    // if (event.event == ActionEvent.DOWN) {
+    //   if (event.id == LogicalKeyboardKey.space ||
+    //       event.id == PlayerAttackType.attackMelee) {
+    //     if (barLifeController.stamina >= 15) {
+    //       decrementStamina(15);
+    //       execMeleeAttack(attack);
+    //     }
+    //   }
+    // }
+
+    super.onJoystickAction(event);
   }
 }

@@ -23,7 +23,7 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/player/player_no_weapon.png
+    - assets/images/player/player_rapier.png
     - assets/images/enemy/
   
   #   - images/a_dot_burr.jpeg

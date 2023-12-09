@@ -82,9 +82,17 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   void update(double dt) {
-    final roundedPositionVector = position.clone();
-    roundedPositionVector.round();
-    textPosition.text = roundedPositionVector.toString();
+    // final roundedPositionVector = position.clone();
+    //roundedPositionVector.round();
+    // textPosition.text = roundedPositionVector.toString();
     super.update(dt);
+  }
+
+  void execMeleeAttack(double attack) {
+    simpleAttackMelee(
+      damage: attack,
+      animationRight: PlayerSpriteSheet.attackRight,
+      size: Vector2.all(128),
+    );
   }
 }

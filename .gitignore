@@ -43,6 +43,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# flame builds
+# flame build dirs
 
 /windows/
+/linux/
+/macos/

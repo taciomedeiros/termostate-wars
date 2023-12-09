@@ -5,11 +5,10 @@ class PlayerSpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
         "player/player_rapier.png",
         SpriteAnimationData.sequenced(
-          texturePosition: PlayerSpriteRow.dancingRight.vector,
-          amount: 3,
-          stepTime: 0.4,
-          textureSize: Vector2(64, 64),
-        ),
+            texturePosition: PlayerSpriteRow.dancingRight.vector,
+            amount: 3,
+            stepTime: 0.4,
+            textureSize: Vector2(64, 64)),
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
@@ -31,15 +30,6 @@ class PlayerSpriteSheet {
           textureSize: Vector2(128, 128),
         ),
       );
-
-  // static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
-  //       "player_no_weapon.png",
-  //       SpriteAnimationData.sequenced(
-  //         amount: 1,
-  //         stepTime: 0.1,
-  //         textureSize: Vector2(64, 64),
-  //       ),
-  //     );
 
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(

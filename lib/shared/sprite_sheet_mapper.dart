@@ -16,7 +16,7 @@ extension PlayerSpriteVector on PlayerSpriteRow {
       case PlayerSpriteRow.dancingRight:
         return Vector2(0 * 64, 3 * 64);
       case PlayerSpriteRow.attackUp:
-        return Vector2(0 * 64, 21 * 64);
+        return Vector2(0 * 64, 22 * 64);
       default:
         throw Exception('no sprite found');
     }

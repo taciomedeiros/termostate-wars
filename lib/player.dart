@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/services.dart';
 import 'package:thermostate_wars/shared/player_sprite_sheet.dart';
 
 // not sure if we'll keep with this
@@ -9,8 +10,7 @@ enum PlayerAttackType {
 
 // good to track during update to control actions
 enum PlayerState {
-  wait,
-  walk,
+  idle,
   attackMelee,
   attackRange,
 }
@@ -19,6 +19,8 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
   double attack = 1;
   double pSpeed = 1;
   double maxSteam = 100;
+  PlayerState currentState = PlayerState.idle;
+
   TextComponent textPosition = TextComponent(text: '', size: Vector2.all(.2));
 
   late BarLifeComponent lifeBar;
@@ -49,18 +51,19 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   void onJoystickAction(JoystickActionEvent event) {
-    // if (hasGameRef && gameRef.sceneBuilderStatus.isRunning || isDead) {
-    //   return;
-    // }
-    // if (event.event == ActionEvent.DOWN) {
-    //   if (event.id == LogicalKeyboardKey.space ||
-    //       event.id == PlayerAttackType.attackMelee) {
-    //     if (barLifeController.stamina >= 15) {
-    //       decrementStamina(15);
-    //       execMeleeAttack(attack);
-    //     }
-    //   }
-    // }
+    if (hasGameRef && gameRef.sceneBuilderStatus.isRunning || isDead) {
+      return;
+    }
+    if (event.event == ActionEvent.DOWN) {
+      if (event.id == LogicalKeyboardKey.space ||
+          event.id == PlayerAttackType.attackMelee) {
+        // if (barLifeController.stamina >= 15) {
+        //   decrementStamina(15);
+        currentState = PlayerState.attackMelee;
+        // execMeleeAttack(attack);
+      }
+      //execMeleeAttack(attack);
+    }
 
     super.onJoystickAction(event);
   }
@@ -82,17 +85,54 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   void update(double dt) {
+    if (currentState == PlayerState.attackMelee) {
+      _playAttackAnimation();
+    }
     // final roundedPositionVector = position.clone();
     //roundedPositionVector.round();
     // textPosition.text = roundedPositionVector.toString();
     super.update(dt);
   }
 
-  void execMeleeAttack(double attack) {
-    simpleAttackMelee(
-      damage: attack,
-      animationRight: PlayerSpriteSheet.attackRight,
-      size: Vector2.all(128),
+  // void execMeleeAttack(double attack) {
+  //   simpleAttackMelee(
+  //       damage: attack,
+  //       animationRight: PlayerSpriteSheet.attackRight,
+  //       size: Vector2.all(32));
+  // }
+
+  void _playAttackAnimation() {
+    animation?.playOnceOther(
+      PlayerSpriteSheet.attackRight,
+      onFinish: () {
+        currentState = PlayerState.idle;
+      },
     );
   }
+  // switch (lastDirection) {
+  //   case Direction.left:
+  //     animation?.playOnceOther(PersonAttackEnum.meeleLeft);
+  // //     break;
+  // //   case Direction.right:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleRight);
+  // //     break;
+  // //   case Direction.up:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleUp);
+  // //     break;
+  // //   case Direction.down:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleDown);
+  // //     break;
+  // //   case Direction.upLeft:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleUpLeft);
+  // //     break;
+  // //   case Direction.upRight:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleUpRight);
+  // //     break;
+  // //   case Direction.downLeft:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleDownLeft);
+  // //     break;
+  // //   case Direction.downRight:
+  // //     animation?.playOnceOther(PersonAttackEnum.meeleDownRight);
+  // //     break;
+  // // }
 }

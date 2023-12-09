@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/services.dart';
 import 'package:thermostate_wars/player.dart';
 import 'package:thermostate_wars/my_world.dart';
 
@@ -37,6 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return BonfireWidget(
       showCollisionArea: true,
       joystick: Joystick(
+        keyboardConfig: KeyboardConfig(
+          directionalKeys: KeyboardDirectionalKeys.arrows(),
+          acceptedKeys: [
+            LogicalKeyboardKey.space,
+          ],
+        ),
         directional: JoystickDirectional(),
       ), // required
       map: MyWorld('mapa.json'),

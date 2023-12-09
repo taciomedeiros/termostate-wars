@@ -9,10 +9,10 @@
     "fileStates": {
         "mapa.json": {
             "scale": 3,
-            "selectedLayer": 2,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 174,
-                "y": 176.66666666666663
+                "y": 176.33333333333334
             }
         }
     },

@@ -15,7 +15,7 @@ enum PlayerState {
   attackRange,
 }
 
-class MainChar extends SimplePlayer {
+class MainChar extends SimplePlayer with BlockMovementCollision {
   double attack = 1;
   double pSpeed = 1;
   double maxSteam = 100;
@@ -67,8 +67,6 @@ class MainChar extends SimplePlayer {
 
   @override
   Future<void> onLoad() {
-    // TODO: implement onLoad
-
     add(textPosition);
     add(RectangleHitbox(size: size));
     return super.onLoad();

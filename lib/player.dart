@@ -67,7 +67,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   Future<void> onLoad() {
-    add(textPosition);
+    //add(textPosition);
     add(
       RectangleHitbox(
         size: Vector2(6, 12),

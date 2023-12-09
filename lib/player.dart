@@ -106,34 +106,33 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
       case Direction.right:
       case Direction.downRight:
         animation?.playOnceOther(
-          "attackRight",
+          PlayerAnimation.attackRight,
           size: definedSize,
           offset: offset,
         );
       case Direction.left:
       case Direction.downLeft:
         animation?.playOnceOther(
-          "attackRight",
+          PlayerAnimation.attackRight,
           size: definedSize,
           offset: offset,
           flipX: true,
         );
       case Direction.down:
         animation?.playOnceOther(
-          "attackRight",
+          PlayerAnimation.attackDown,
           size: definedSize,
           offset: offset,
         );
       case Direction.up:
         animation?.playOnceOther(
-          "attackRight",
+          PlayerAnimation.attackUp,
           size: definedSize,
           offset: offset,
-          flipY: true,
         );
       default:
         animation?.playOnceOther(
-          "attackRight",
+          PlayerAnimation.die,
           size: definedSize,
           offset: offset,
           flipY: true,

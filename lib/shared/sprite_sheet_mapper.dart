@@ -1,11 +1,12 @@
 import 'package:bonfire/bonfire.dart';
 
 enum PlayerSpriteRow {
-  walkLeft,
   dancingRight,
   walkRight,
   attackRight,
-  attackUp;
+  attackUp,
+  attackDown,
+  die;
 }
 
 extension PlayerSpriteVector on PlayerSpriteRow {
@@ -15,8 +16,14 @@ extension PlayerSpriteVector on PlayerSpriteRow {
         return Vector2(0 * 64, 11 * 64);
       case PlayerSpriteRow.dancingRight:
         return Vector2(0 * 64, 3 * 64);
+      case PlayerSpriteRow.die:
+        return Vector2(0 * 64, 20 * 64);
       case PlayerSpriteRow.attackUp:
+        return Vector2(0, 21 * 64 + 0 * 192);
+      case PlayerSpriteRow.attackRight:
         return Vector2(0, 21 * 64 + 3 * 192);
+      case PlayerSpriteRow.attackDown:
+        return Vector2(0, 21 * 64 + 2 * 192);
       default:
         throw Exception('no sprite found');
     }

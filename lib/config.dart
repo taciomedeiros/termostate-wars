@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 
 double tileSize = 16;
-Vector2 mapSize = Vector2.all(20);
+Vector2 mapSize = Vector2.all(30);
 double timeInSecodsAppearingEnemies = 5;
 
 class PlayerConfig {}

@@ -18,6 +18,20 @@ class BlueEnemy extends SimpleEnemy {
         );
 
   @override
+  Future<void> onLoad() {
+    add(
+      RectangleHitbox(
+        size: Vector2(3, 5),
+        position: Vector2(
+          6,
+          6,
+        ),
+      ),
+    );
+    return super.onLoad();
+  }
+
+  @override
   void update(double dt) {
     _seePlayerClose = false;
     seePlayer(

@@ -24,6 +24,9 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/maps/images/
+    - assets/images/maps/images/lava/
+    - assets/images/maps/
     - assets/images/player/player_rapier.png
     - assets/images/enemy/
   

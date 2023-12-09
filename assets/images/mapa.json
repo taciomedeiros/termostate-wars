@@ -63,9 +63,42 @@
          "width":20,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":4,
+         "name":"Enemies",
+         "objects":[
+                {
+                 "height":13.3333333333333,
+                 "id":1,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":14.6666666666667,
+                 "x":209,
+                 "y":49.3333333333333
+                }, 
+                {
+                 "height":14.6666666666667,
+                 "id":3,
+                 "name":"",
+                 "rotation":0,
+                 "type":"FireEnemy",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":257.333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":3,
- "nextobjectid":1,
+ "nextlayerid":5,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",

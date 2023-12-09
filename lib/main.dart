@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/player.dart';
+import 'package:thermostate_wars/my_world.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         joystick: Joystick(
           directional: JoystickDirectional(),
         ), // required
-        map: WorldMapByTiled('mapa.json', forceTileSize: Vector2(16, 16)),
+        map: MyWorld('mapa.json'),
         cameraConfig: CameraConfig(zoom: 5),
         player: MainChar(Vector2(10, 10)));
   }

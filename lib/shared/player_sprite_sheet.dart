@@ -27,13 +27,15 @@ class PlayerSpriteSheet {
           texturePosition: PlayerSpriteRow.attackUp.vector,
           amount: 9,
           stepTime: 0.1,
-          textureSize: Vector2(128, 128),
+          textureSize: Vector2.all(192),
         ),
       );
 
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(
-        idleRight: idleRight,
-        runRight: runRight,
-      );
+          idleRight: idleRight,
+          runRight: runRight,
+          others: {
+            "attackRight": attackRight,
+          });
 }

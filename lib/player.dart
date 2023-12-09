@@ -60,7 +60,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
         // if (barLifeController.stamina >= 15) {
         //   decrementStamina(15);
         currentState = PlayerState.attackMelee;
-        // execMeleeAttack(attack);
+        execAttack();
       }
       //execMeleeAttack(attack);
     }
@@ -85,9 +85,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   void update(double dt) {
-    if (currentState == PlayerState.attackMelee) {
-      _playAttackAnimation();
-    }
+    if (currentState == PlayerState.attackMelee) {}
     // final roundedPositionVector = position.clone();
     //roundedPositionVector.round();
     // textPosition.text = roundedPositionVector.toString();
@@ -102,37 +100,57 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
   // }
 
   void _playAttackAnimation() {
-    animation?.playOnceOther(
-      PlayerSpriteSheet.attackRight,
-      onFinish: () {
-        currentState = PlayerState.idle;
-      },
-    );
+    Vector2 definedSize = Vector2.all(48);
+    Vector2 offset = Vector2.all(-16);
+    switch (lastDirection) {
+      case Direction.right:
+      case Direction.downRight:
+        animation?.playOnceOther(
+          "attackRight",
+          size: definedSize,
+          offset: offset,
+        );
+      case Direction.left:
+      case Direction.downLeft:
+        animation?.playOnceOther(
+          "attackRight",
+          size: definedSize,
+          offset: offset,
+          flipX: true,
+        );
+      case Direction.down:
+        animation?.playOnceOther(
+          "attackRight",
+          size: definedSize,
+          offset: offset,
+        );
+      case Direction.up:
+        animation?.playOnceOther(
+          "attackRight",
+          size: definedSize,
+          offset: offset,
+          flipY: true,
+        );
+      default:
+        animation?.playOnceOther(
+          "attackRight",
+          size: definedSize,
+          offset: offset,
+          flipY: true,
+        );
+    }
   }
-  // switch (lastDirection) {
-  //   case Direction.left:
-  //     animation?.playOnceOther(PersonAttackEnum.meeleLeft);
-  // //     break;
-  // //   case Direction.right:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleRight);
-  // //     break;
-  // //   case Direction.up:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleUp);
-  // //     break;
-  // //   case Direction.down:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleDown);
-  // //     break;
-  // //   case Direction.upLeft:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleUpLeft);
-  // //     break;
-  // //   case Direction.upRight:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleUpRight);
-  // //     break;
-  // //   case Direction.downLeft:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleDownLeft);
-  // //     break;
-  // //   case Direction.downRight:
-  // //     animation?.playOnceOther(PersonAttackEnum.meeleDownRight);
-  // //     break;
-  // // }
+
+  void execAttack() {
+    _playAttackAnimation();
+    /*simpleAttackMelee(
+      size: Vector2.all(tileSize * 0.62),
+      damage: attack / 3,
+      interval: 300,
+      animationRight: EnemySpriteSheet.enemyAttackEffectRight(),
+      execute: () {
+        Sounds.attackEnemyMelee();
+      },
+    );*/
+  }
 }

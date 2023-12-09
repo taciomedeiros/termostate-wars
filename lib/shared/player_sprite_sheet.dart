@@ -2,7 +2,7 @@ import 'package:bonfire/bonfire.dart';
 
 class PlayerSpriteSheet {
   static Future<SpriteAnimation> get idleLeft => SpriteAnimation.load(
-        "assets/images/player/player_no_weapon.png",
+        "player/player_no_weapon.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -11,7 +11,7 @@ class PlayerSpriteSheet {
       );
 
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "assets/images/player/player_no_weapon.png",
+        "player/player_no_weapon.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -20,7 +20,7 @@ class PlayerSpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "assets/images/player/player_no_weapon.png",
+        "player/player_no_weapon.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -29,7 +29,7 @@ class PlayerSpriteSheet {
       );
 
   static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
-        "assets/images/player/player_no_weapon.png",
+        "player_no_weapon.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,

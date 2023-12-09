@@ -15,7 +15,7 @@ class PlayerSpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
         "player/player_no_weapon.png",
         SpriteAnimationData.sequenced(
-          texturePosition: SpriteRow.walkLeft.vector,
+          texturePosition: PlayerSpriteRow.walkLeft.vector,
           amount: 1,
           stepTime: 0.1,
           textureSize: Vector2(64, 64),
@@ -25,7 +25,7 @@ class PlayerSpriteSheet {
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
         "player/player_no_weapon.png",
         SpriteAnimationData.sequenced(
-          texturePosition: SpriteRow.walkLeft.vector,
+          texturePosition: PlayerSpriteRow.walkLeft.vector,
           amount: 9,
           stepTime: 0.1,
           textureSize: Vector2(64, 64),

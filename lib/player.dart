@@ -75,7 +75,9 @@ class MainChar extends SimplePlayer {
 
   @override
   void update(double dt) {
-    textPosition.text = position.toString();
+    final roundedPositionVector = position.clone();
+    roundedPositionVector.round();
+    textPosition.text = roundedPositionVector.toString();
     super.update(dt);
   }
 }

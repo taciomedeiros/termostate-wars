@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // required
       map: MyWorld('mapa.json'),
       cameraConfig: CameraConfig(zoom: 5),
-      player: MainChar(Vector2(10, 10)),
+      player: MainChar(Vector2(173, 200)),
     );
   }
 }

@@ -72,9 +72,9 @@
                 {
                  "height":13.3333333333333,
                  "id":1,
-                 "name":"",
+                 "name":"fire-enemy",
                  "rotation":0,
-                 "type":"",
+                 "type":"fire-enemy",
                  "visible":true,
                  "width":14.6666666666667,
                  "x":209,
@@ -83,9 +83,9 @@
                 {
                  "height":14.6666666666667,
                  "id":3,
-                 "name":"",
+                 "name":"fire-enemy",
                  "rotation":0,
-                 "type":"FireEnemy",
+                 "type":"fire-enemy",
                  "visible":true,
                  "width":16,
                  "x":64,

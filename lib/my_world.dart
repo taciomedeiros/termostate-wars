@@ -6,14 +6,15 @@ class MyWorld extends WorldMapByTiled {
       : super(
           forceTileSize: Vector2(16, 16),
           objectsBuilder: {
-            'fireEnemy': (TiledObjectProperties properties) =>
-                FireEnemy(properties.position),
+            'fire-enemy': (TiledObjectProperties properties) {
+              print('identificou');
+              return FireEnemy(properties.position);
+            }
           },
         );
 
   @override
   Future<void>? onLoad() {
-    gameRef.add(FireEnemy(Vector2.all(100)));
     return super.onLoad();
   }
 }

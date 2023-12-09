@@ -19,6 +19,7 @@ class MainChar extends SimplePlayer {
   double attack = 1;
   double pSpeed = 1;
   double maxSteam = 100;
+  TextComponent textPosition = TextComponent(text: '', size: Vector2.all(.2));
 
   late BarLifeComponent lifeBar;
 
@@ -62,5 +63,19 @@ class MainChar extends SimplePlayer {
     // }
 
     super.onJoystickAction(event);
+  }
+
+  @override
+  Future<void> onLoad() {
+    // TODO: implement onLoad
+
+    add(textPosition);
+    return super.onLoad();
+  }
+
+  @override
+  void update(double dt) {
+    textPosition.text = position.toString();
+    super.update(dt);
   }
 }

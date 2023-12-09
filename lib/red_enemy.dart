@@ -5,10 +5,12 @@ import 'package:thermostate_wars/shared/red_enemy_sprite_sheet.dart';
 class RedEnemy extends SimpleEnemy {
   bool _seePlayerClose = false;
   double attack;
+  int attackInterval = 600;
+
   RedEnemy(Vector2 position, this.attack)
       : super(
           position: position, //required
-          size: Vector2.all(20.0), //required
+          size: Vector2.all(redEnemySize), //required
           life: 100,
           speed: 5,
           initDirection: Direction.right,
@@ -21,9 +23,12 @@ class RedEnemy extends SimpleEnemy {
     seePlayer(
       observed: (player) {
         _seePlayerClose = true;
+        //animation?.showStroke(Colors.white, 1);
         seeAndMoveToPlayer(
           closePlayer: (player) {
-            execAttack();
+            if (checkInterval('attack', attackInterval, dt)) {
+              execAttack();
+            }
           },
           radiusVision: tileSize * 20,
         );
@@ -39,7 +44,48 @@ class RedEnemy extends SimpleEnemy {
     super.update(dt);
   }
 
+  void _playAttackAnimation() {
+    switch (lastDirection) {
+      case Direction.right:
+        animation?.playOnceOther(
+          RedEnemyAnimation.attackRight,
+          size: Vector2.all(64),
+          offset: Vector2(-20, -20),
+        );
+      case Direction.left:
+        animation?.playOnceOther(
+          RedEnemyAnimation.attackRight,
+          size: Vector2.all(64),
+          offset: Vector2(-20, -20),
+          flipX: true,
+        );
+      case Direction.down:
+        animation?.playOnceOther(
+          RedEnemyAnimation.attackDown,
+          size: Vector2.all(64),
+          offset: Vector2(-20, -20),
+        );
+      case Direction.up:
+        animation?.playOnceOther(
+          RedEnemyAnimation.attackDown,
+          size: Vector2.all(64),
+          offset: Vector2(-20, -20),
+          flipY: true,
+        );
+
+      default:
+        animation?.playOnceOther(
+          RedEnemyAnimation.attackRight,
+          size: Vector2.all(64),
+          offset: Vector2(-20, -20),
+        );
+    }
+  }
+
+  // 192 - 64
+
   void execAttack() {
+    _playAttackAnimation();
     /*simpleAttackMelee(
       size: Vector2.all(tileSize * 0.62),
       damage: attack / 3,

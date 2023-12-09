@@ -25,7 +25,7 @@ class MainChar extends SimplePlayer {
   MainChar(Vector2 position)
       : super(
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
-          size: Vector2.all(64),
+          size: Vector2.all(16),
           position: position,
           speed: 64,
           life: 200,

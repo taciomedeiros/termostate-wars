@@ -70,6 +70,7 @@ class MainChar extends SimplePlayer {
     // TODO: implement onLoad
 
     add(textPosition);
+    add(RectangleHitbox(size: size));
     return super.onLoad();
   }
 

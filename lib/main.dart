@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
+import 'package:thermostate_wars/player.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Thermostat war',
+      title: 'Thermostate war',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -35,11 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BonfireWidget(
-      joystick: Joystick(
-        directional: JoystickDirectional(),
-      ), // required
-      map: WorldMapByTiled('mapa.json', forceTileSize: Vector2(16, 16)),
-      cameraConfig: CameraConfig(zoom: 5),
-    );
+        joystick: Joystick(
+          directional: JoystickDirectional(),
+        ), // required
+        map: WorldMapByTiled('mapa.json', forceTileSize: Vector2(16, 16)),
+        cameraConfig: CameraConfig(zoom: 5),
+        player: MainChar(Vector2(10, 10)));
   }
 }

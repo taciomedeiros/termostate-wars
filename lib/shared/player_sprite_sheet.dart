@@ -25,7 +25,7 @@ class PlayerSpriteSheet {
         "player/player_rapier.png",
         SpriteAnimationData.sequenced(
           texturePosition: PlayerSpriteRow.attackUp.vector,
-          amount: 6,
+          amount: 9,
           stepTime: 0.1,
           textureSize: Vector2.all(192),
         ),

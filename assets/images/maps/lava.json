@@ -1,0 +1,108 @@
+{ "columns":0,
+ "grid":
+    {
+     "height":1,
+     "orientation":"orthogonal",
+     "width":1
+    },
+ "margin":0,
+ "name":"lava",
+ "spacing":0,
+ "tilecount":15,
+ "tiledversion":"1.10.2",
+ "tileheight":16,
+ "tiles":[
+        {
+         "id":0,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_136 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":1,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_135 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":2,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_133 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":3,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_124 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":4,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_123 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":5,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_122 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":6,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_121 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":7,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_112 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":8,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_111 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":9,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_110 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":10,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_109 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":11,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_100 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":12,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_98 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":13,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_97 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }, 
+        {
+         "id":14,
+         "image":"..\/..\/..\/..\/..\/tiles\/resource\/Map_tile_99 (1).png",
+         "imageheight":16,
+         "imagewidth":16
+        }],
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

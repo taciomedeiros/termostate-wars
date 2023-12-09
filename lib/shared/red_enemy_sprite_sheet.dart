@@ -3,7 +3,7 @@ import 'package:thermostate_wars/shared/sprite_sheet_mapper.dart';
 
 class RedEnemySpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "enemy/red-enemy.png",
+        "enemy/red_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.idleRight.vector,
           amount: 4,
@@ -13,7 +13,7 @@ class RedEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "enemy/red-enemy.png",
+        "enemy/red_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.walkRight.vector,
           amount: 8,

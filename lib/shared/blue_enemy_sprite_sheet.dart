@@ -1,11 +1,11 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/shared/sprite_sheet_mapper.dart';
 
-enum RedEnemyAnimation { attackRight, attackDown }
+enum BlueEnemyAnimation { attackRight, attackDown }
 
-class RedEnemySpriteSheet {
+class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "enemy/red_enemy.png",
+        "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.idleRight.vector,
           amount: 4,
@@ -15,7 +15,7 @@ class RedEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "enemy/red_enemy.png",
+        "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.walkRight.vector,
           amount: 8,
@@ -25,7 +25,7 @@ class RedEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get attackRight => SpriteAnimation.load(
-        "enemy/red_enemy.png",
+        "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.attackRight.vector,
           amount: 5,
@@ -35,7 +35,7 @@ class RedEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get attackDown => SpriteAnimation.load(
-        "enemy/red_enemy.png",
+        "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.attackDown.vector,
           amount: 5,
@@ -44,7 +44,7 @@ class RedEnemySpriteSheet {
         ),
       );
   static Future<SpriteAnimation> get die => SpriteAnimation.load(
-        "enemy/red_enemy.png",
+        "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.attackDown.vector,
           amount: 5,
@@ -58,7 +58,7 @@ class RedEnemySpriteSheet {
           idleRight: idleRight,
           runRight: runRight,
           others: {
-            RedEnemyAnimation.attackRight: attackRight,
-            RedEnemyAnimation.attackDown: attackDown,
+            BlueEnemyAnimation.attackRight: attackRight,
+            BlueEnemyAnimation.attackDown: attackDown,
           });
 }

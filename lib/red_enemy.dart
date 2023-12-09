@@ -2,15 +2,15 @@ import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/npc/enemy/simple_enemy.dart';
 import 'package:thermostate_wars/shared/fire_enemy_sprite_sheet.dart';
 
-class FireEnemy extends SimpleEnemy {
-  FireEnemy(Vector2 position)
+class RedEnemy extends SimpleEnemy {
+  RedEnemy(Vector2 position)
       : super(
           position: position, //required
-          size: Vector2.all(32.0), //required
+          size: Vector2.all(20.0), //required
           life: 100,
           speed: 1,
           initDirection: Direction.right,
-          animation: FireEnemySpriteSheet.simpleDirectionAnimation,
+          animation: RedEnemySpriteSheet.simpleDirectionAnimation,
         );
 
   @override

@@ -1,9 +1,9 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/shared/sprite_sheet_mapper.dart';
 
-class FireEnemySpriteSheet {
+class RedEnemySpriteSheet {
   static Future<SpriteAnimation> get idleLeft => SpriteAnimation.load(
-        "enemy/skeleton.png",
+        "enemy/red-enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.walkRight.vector,
           amount: 6,
@@ -13,7 +13,7 @@ class FireEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "enemy/skeleton.png",
+        "enemy/red-enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.walkRight.vector,
           amount: 4,
@@ -23,7 +23,7 @@ class FireEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "enemy/skeleton.png",
+        "enemy/red-enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.walkRight.vector,
           amount: 6,
@@ -33,7 +33,7 @@ class FireEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
-        "enemy/skeleton.png",
+        "enemy/red-enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: FireEnemySpriteRow.walkRight.vector,
           amount: 6,

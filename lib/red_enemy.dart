@@ -23,7 +23,6 @@ class RedEnemy extends SimpleEnemy {
     seePlayer(
       observed: (player) {
         _seePlayerClose = true;
-        //animation?.showStroke(Colors.white, 1);
         seeAndMoveToPlayer(
           closePlayer: (player) {
             if (checkInterval('attack', attackInterval, dt)) {
@@ -44,12 +43,27 @@ class RedEnemy extends SimpleEnemy {
     super.update(dt);
   }
 
+  @override
+  void die() {
+    gameRef.add(
+      AnimatedGameObject(
+        animation: RedEnemySpriteSheet.die,
+        position: position,
+        size: Vector2.all(redEnemySize),
+        loop: false,
+      ),
+    );
+    removeFromParent();
+    super.die();
+  }
+
   void _playAttackAnimation() {
     Vector2 definedSize = Vector2.all(48);
     Vector2 offset = Vector2.all(-16);
     switch (lastDirection) {
       case Direction.right:
       case Direction.downRight:
+      case Direction.upRight:
         animation?.playOnceOther(
           RedEnemyAnimation.attackRight,
           size: definedSize,
@@ -57,6 +71,7 @@ class RedEnemy extends SimpleEnemy {
         );
       case Direction.left:
       case Direction.downLeft:
+      case Direction.upLeft:
         animation?.playOnceOther(
           RedEnemyAnimation.attackRight,
           size: definedSize,
@@ -90,15 +105,14 @@ class RedEnemy extends SimpleEnemy {
 
   void execAttack() {
     _playAttackAnimation();
-    /*simpleAttackMelee(
+    simpleAttackMelee(
       size: Vector2.all(tileSize * 0.62),
       damage: attack / 3,
-      interval: 300,
-      animationRight: EnemySpriteSheet.enemyAttackEffectRight(),
+      interval: attackInterval,
       execute: () {
-        Sounds.attackEnemyMelee();
+        //Sounds.attackEnemyMelee();
       },
-    );*/
+    );
   }
 
   @override

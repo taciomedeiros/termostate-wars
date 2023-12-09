@@ -5,6 +5,9 @@ import 'package:thermostate_wars/wall.dart';
 
 class MyWorld extends WorldMapByTiled {
   late Vector2 worldCenter;
+  EnemyCreator enemyCreator = EnemyCreator(mapSize * tileSize);
+
+  Map<String, int> killedEnemies = {"blue": 0, "red": 0};
 
   MyWorld(super.path)
       : super(forceTileSize: Vector2(16, 16), objectsBuilder: {
@@ -15,7 +18,8 @@ class MyWorld extends WorldMapByTiled {
   @override
   Future<void>? onLoad() {
     worldCenter = Vector2(mapSize.x / 2, mapSize.x / 2);
-    gameRef.add(EnemyCreator(mapSize * tileSize));
+    gameRef.add(enemyCreator);
+
     return super.onLoad();
   }
 }

@@ -43,6 +43,15 @@ class RedEnemySpriteSheet {
           textureSize: Vector2.all(192),
         ),
       );
+  static Future<SpriteAnimation> get die => SpriteAnimation.load(
+        "enemy/red_enemy.png",
+        SpriteAnimationData.sequenced(
+          texturePosition: FireEnemySpriteRow.die.vector,
+          amount: 5,
+          stepTime: 0.1,
+          textureSize: Vector2.all(64),
+        ),
+      );
 
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(

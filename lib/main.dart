@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/services.dart';
+import 'package:thermostate_wars/config.dart';
+import 'package:thermostate_wars/enemy_creator.dart';
+import 'package:thermostate_wars/interface/my_game_interface.dart';
 import 'package:thermostate_wars/player.dart';
 import 'package:thermostate_wars/my_world.dart';
 
@@ -18,21 +21,28 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const MyGameWidget(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
+class MyGameWidget extends StatefulWidget {
+  const MyGameWidget({
     super.key,
   });
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyGameWidget> createState() => _MyGameWidgetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyGameWidgetState extends State<MyGameWidget> {
+  EnemyCreator enemyCreator = EnemyCreator(mapSize * tileSize);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BonfireWidget(
@@ -47,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         directional: JoystickDirectional(),
       ), // required
       map: MyWorld('mapa.json'),
+      interface: MyGameInterface(),
       cameraConfig: CameraConfig(zoom: 5),
       player: MainChar(Vector2(173, 200)),
     );

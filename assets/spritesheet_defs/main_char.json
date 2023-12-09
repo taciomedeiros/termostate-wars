@@ -1,0 +1,133 @@
+{
+    "bodyTypeName": "female",
+    "url": "https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_fur_tan&head=Human_female_fur_tan&sex=female&wound_arm=none&wound_brain=none&wound_ribs=none&wound_eye=none&nose=Button_nose_fur_tan&eyes=Eyes_purple&hair=Princess_black&facial=none&earring=Earring_gold&neck=none&necklace=none&shoulders=none&arms=none&bauldron=none&bracers=none&dress=Sash_dress_green&vest=none&bandages=none&cape=Tattered_bluegray&cape_trim=Cape_Trim_bluegray&belt=none&sash=Narrow_sash_bluegray&buckles=Buckles_bronze&shoes=Boots_rose&weapon=Katana_katana",
+    "spritesheets": "https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/spritesheets/",
+    "version": 1,
+    "datetime": "08/12/2023, 21:08:41",
+    "credits": "Authors: Benjamin K. Smith (BenCreating), bluecarrot16, TheraHedwig, Evert, MuffinElZangano, Durrani, Pierre Vigier (pvigier), ElizaWy, Matthew Krohn (makrohn), Johannes Sjölund (wulax), Stephen Challener (Redshrike), Thane Brimhall (pennomi), David Conway Jr. (JaidynReiman), Lanea Zimmerman (Sharm), Manuel Riecke (MrBeast), laetissima, Nila122, Luke Mehl, Pierre Vigier and DCSS artists (see https://github.com/crawl/tiles/blob/master/ARTISTS.md)\n\n- body/bodies/female/universal/fur_tan.png: by Benjamin K. Smith (BenCreating), bluecarrot16, TheraHedwig, Evert, MuffinElZangano, Durrani, Pierre Vigier (pvigier), ElizaWy, Matthew Krohn (makrohn), Johannes Sjölund (wulax), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles\n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-ladies\n    - https://opengameart.org/content/lpc-7-womens-shirts\n    - https://opengameart.org/content/lpc-jump-expanded\n\n- head/heads/human_female/universal/fur_tan.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/\n    - https://opengameart.org/content/lpc-character-bases\n\n- head/nose/button/fur_tan.png: by Thane Brimhall (pennomi), Matthew Krohn (makrohn). License(s): GPL 3.0, CC-BY-SA 3.0. \n    - https://opengameart.org/content/lpc-base-character-expressions\n\n- eyes/male/purple.png: by David Conway Jr. (JaidynReiman), Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles\n\n- hair/princess/female/black.png: by David Conway Jr. (JaidynReiman), Lanea Zimmerman (Sharm), Manuel Riecke (MrBeast). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles\n\n- facial/earring/female/gold.png: by bluecarrot16. License(s): CC-BY-SA 3.0. \n    - https://opengameart.org/content/lpc-pirates\n\n- dress/sash/female/green.png: by bluecarrot16, Thane Brimhall (pennomi), laetissima, Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-2-characters\n\n- cape/tattered/female/bluegray.png: by Nila122, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more\n    - https://opengameart.org/content/lpc-roman-armor\n\n- cape/tattered_behind/bluegray.png: by Nila122, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more\n    - https://opengameart.org/content/lpc-roman-armor\n\n- cape/trim/female/bluegray.png: by bluecarrot16, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more\n    - http://opengameart.org/content/lpc-clothing-updates\n\n- torso/waist/sash_narrow/female/bluegray.png: by bluecarrot16, Nila122. License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. \n    - https://opengameart.org/content/more-lpc-clothes-and-hair\n    - https://opengameart.org/content/lpc-pirates\n\n- torso/waist/buckles/female/bronze.png: by Luke Mehl. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/female-mage-clothing-set\n\n- feet/boots/female/rose.png: by bluecarrot16, Nila122. License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 2.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-clothes-and-hair\n\n- weapon/sword/katana/walk/katana.png: by Pierre Vigier and DCSS artists (see https://github.com/crawl/tiles/blob/master/ARTISTS.md). License(s): OGA-BY 3.0. \n    - https://opengameart.org/content/lpc-dcss-swords\n\n- weapon/sword/katana/walk/behind/katana.png: by Pierre Vigier and DCSS artists (see https://github.com/crawl/tiles/blob/master/ARTISTS.md). License(s): OGA-BY 3.0. \n    - https://opengameart.org/content/lpc-dcss-swords\n\n- weapon/sword/katana/slash/katana.png: by Pierre Vigier and DCSS artists (see https://github.com/crawl/tiles/blob/master/ARTISTS.md). License(s): OGA-BY 3.0. \n    - https://opengameart.org/content/lpc-dcss-swords\n\n- weapon/sword/katana/slash/behind/katana.png: by Pierre Vigier and DCSS artists (see https://github.com/crawl/tiles/blob/master/ARTISTS.md). License(s): OGA-BY 3.0. \n    - https://opengameart.org/content/lpc-dcss-swords",
+    "layers": [
+      {
+        "fileName": "cape/tattered_behind/bluegray.png",
+        "zPos": 5,
+        "parentName": "cape",
+        "name": "Tattered",
+        "variant": "bluegray"
+      },
+      {
+        "fileName": "weapon/sword/katana/walk/behind/katana.png",
+        "zPos": 9,
+        "custom_animation": "walk_128",
+        "parentName": "weapon",
+        "name": "Katana",
+        "variant": "katana"
+      },
+      {
+        "fileName": "weapon/sword/katana/slash/behind/katana.png",
+        "zPos": 9,
+        "custom_animation": "slash_128",
+        "parentName": "weapon",
+        "name": "Katana",
+        "variant": "katana"
+      },
+      {
+        "fileName": "body/bodies/female/universal/fur_tan.png",
+        "zPos": 10,
+        "parentName": "body",
+        "name": "Body color",
+        "variant": "fur_tan"
+      },
+      {
+        "fileName": "feet/boots/female/rose.png",
+        "zPos": 25,
+        "parentName": "shoes",
+        "name": "Boots",
+        "variant": "rose"
+      },
+      {
+        "fileName": "dress/sash/female/green.png",
+        "zPos": 30,
+        "parentName": "dress",
+        "name": "Sash dress",
+        "variant": "green"
+      },
+      {
+        "fileName": "torso/waist/sash_narrow/female/bluegray.png",
+        "zPos": 65,
+        "parentName": "sash",
+        "name": "Narrow sash",
+        "variant": "bluegray"
+      },
+      {
+        "fileName": "torso/waist/buckles/female/bronze.png",
+        "zPos": 75,
+        "parentName": "buckles",
+        "name": "Buckles",
+        "variant": "bronze"
+      },
+      {
+        "fileName": "cape/tattered/female/bluegray.png",
+        "zPos": 85,
+        "parentName": "cape",
+        "name": "Tattered",
+        "variant": "bluegray"
+      },
+      {
+        "fileName": "cape/trim/female/bluegray.png",
+        "zPos": 90,
+        "parentName": "cape_trim",
+        "name": "Cape Trim",
+        "variant": "bluegray"
+      },
+      {
+        "fileName": "head/heads/human_female/universal/fur_tan.png",
+        "zPos": 100,
+        "parentName": "head",
+        "name": "Human female",
+        "variant": "fur_tan"
+      },
+      {
+        "fileName": "head/nose/button/fur_tan.png",
+        "zPos": 105,
+        "parentName": "nose",
+        "name": "Button nose",
+        "variant": "fur_tan"
+      },
+      {
+        "fileName": "eyes/male/purple.png",
+        "zPos": 105,
+        "parentName": "eyes",
+        "name": "Eyes",
+        "variant": "purple"
+      },
+      {
+        "fileName": "facial/earring/female/gold.png",
+        "zPos": 115,
+        "parentName": "earring",
+        "name": "Earring",
+        "variant": "gold"
+      },
+      {
+        "fileName": "hair/princess/female/black.png",
+        "zPos": 120,
+        "parentName": "hair",
+        "name": "Princess",
+        "variant": "black"
+      },
+      {
+        "fileName": "weapon/sword/katana/walk/katana.png",
+        "zPos": 140,
+        "custom_animation": "walk_128",
+        "parentName": "weapon",
+        "name": "Katana",
+        "variant": "katana"
+      },
+      {
+        "fileName": "weapon/sword/katana/slash/katana.png",
+        "zPos": 140,
+        "custom_animation": "slash_128",
+        "parentName": "weapon",
+        "name": "Katana",
+        "variant": "katana"
+      }
+    ]
+  }

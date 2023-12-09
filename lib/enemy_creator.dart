@@ -11,8 +11,8 @@ class EnemyCreator extends TimerComponent with HasGameRef {
   int stageFactor = 1;
   int redAmountForCreation = 1;
   int blueAmountForCreation = 1;
-  double blueAtack = 10;
-  double redAtack = 10;
+  double blueAtack = blueEnemyConfig.attack;
+  double redAtack = redEnemyConfig.attack;
 
   Map<int, int> enemiesByStage = {
     1: 20,
@@ -33,7 +33,7 @@ class EnemyCreator extends TimerComponent with HasGameRef {
             (random.nextInt(worldSize.x.toInt()) - tileSize).toDouble(),
             (random.nextInt(worldSize.y.toInt()) - tileSize).toDouble(),
           ),
-          blueAtack,
+          attack: blueAtack,
         ),
       ),
     );
@@ -48,7 +48,7 @@ class EnemyCreator extends TimerComponent with HasGameRef {
             (random.nextInt(worldSize.x.toInt()) - tileSize).toDouble(),
             (random.nextInt(worldSize.y.toInt()) - tileSize).toDouble(),
           ),
-          redAtack,
+          attack: redAtack,
         ),
       ),
     );

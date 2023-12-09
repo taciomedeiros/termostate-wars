@@ -73,10 +73,10 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     //add(textPosition);
     add(
       RectangleHitbox(
-        size: Vector2(6, 12),
+        size: Vector2(3, 5),
         position: Vector2(
-          5,
-          4,
+          6,
+          6,
         ),
       ),
     );

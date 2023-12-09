@@ -4,15 +4,15 @@ import 'package:thermostate_wars/shared/red_enemy_sprite_sheet.dart';
 
 class RedEnemy extends SimpleEnemy {
   bool _seePlayerClose = false;
-  double attack;
+  double? attack;
   int attackInterval = 600;
 
-  RedEnemy(Vector2 position, this.attack)
+  RedEnemy(Vector2 position, {this.attack})
       : super(
           position: position, //required
-          size: Vector2.all(redEnemySize), //required
-          life: 100,
-          speed: 5,
+          size: redEnemyConfig.size, //required
+          life: redEnemyConfig.life,
+          speed: redEnemyConfig.speed,
           initDirection: Direction.right,
           animation: RedEnemySpriteSheet.simpleDirectionAnimation,
         );
@@ -29,10 +29,10 @@ class RedEnemy extends SimpleEnemy {
               execAttack();
             }
           },
-          radiusVision: tileSize * 20,
+          radiusVision: tileSize * redEnemyConfig.rangeVision,
         );
       },
-      radiusVision: tileSize * 20,
+      radiusVision: tileSize * redEnemyConfig.rangeVision,
     );
     if (!_seePlayerClose) {
       seeAndMoveToAttackRange(
@@ -49,7 +49,7 @@ class RedEnemy extends SimpleEnemy {
       AnimatedGameObject(
         animation: RedEnemySpriteSheet.die,
         position: position,
-        size: Vector2.all(redEnemySize),
+        size: redEnemyConfig.size,
         loop: false,
       ),
     );
@@ -107,7 +107,7 @@ class RedEnemy extends SimpleEnemy {
     _playAttackAnimation();
     simpleAttackMelee(
       size: Vector2.all(tileSize * 0.62),
-      damage: attack / 3,
+      damage: attack ?? redEnemyConfig.attack,
       interval: attackInterval,
       execute: () {
         //Sounds.attackEnemyMelee();

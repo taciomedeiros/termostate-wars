@@ -56,7 +56,7 @@ class _MyGameWidgetState extends State<MyGameWidget> {
         ),
         directional: JoystickDirectional(),
       ), // required
-      map: MyWorld('mapa.json'),
+      map: MyWorld('maps/stage_001.json'),
       interface: MyGameInterface(),
       cameraConfig: CameraConfig(zoom: 5),
       player: MainChar(Vector2(173, 200)),

@@ -45,39 +45,43 @@ class RedEnemy extends SimpleEnemy {
   }
 
   void _playAttackAnimation() {
+    Vector2 definedSize = Vector2.all(48);
+    Vector2 offset = Vector2.all(-16);
     switch (lastDirection) {
       case Direction.right:
+      case Direction.downRight:
         animation?.playOnceOther(
           RedEnemyAnimation.attackRight,
-          size: Vector2.all(64),
-          offset: Vector2(-20, -20),
+          size: definedSize,
+          offset: offset,
         );
       case Direction.left:
+      case Direction.downLeft:
         animation?.playOnceOther(
           RedEnemyAnimation.attackRight,
-          size: Vector2.all(64),
-          offset: Vector2(-20, -20),
+          size: definedSize,
+          offset: offset,
           flipX: true,
         );
       case Direction.down:
         animation?.playOnceOther(
           RedEnemyAnimation.attackDown,
-          size: Vector2.all(64),
-          offset: Vector2(-20, -20),
+          size: definedSize,
+          offset: offset,
         );
       case Direction.up:
         animation?.playOnceOther(
           RedEnemyAnimation.attackDown,
-          size: Vector2.all(64),
-          offset: Vector2(-20, -20),
+          size: definedSize,
+          offset: offset,
           flipY: true,
         );
 
       default:
         animation?.playOnceOther(
           RedEnemyAnimation.attackRight,
-          size: Vector2.all(64),
-          offset: Vector2(-20, -20),
+          size: definedSize,
+          offset: offset,
         );
     }
   }

@@ -1,6 +1,4 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:bonfire/util/talk/say.dart';
-import 'package:bonfire/util/talk/talk_dialog.dart';
 import 'package:flutter/widgets.dart';
 import 'package:thermostate_wars/shared/mage_enemy_sprite_sheet.dart';
 

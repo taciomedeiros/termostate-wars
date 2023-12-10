@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:thermostate_wars/shared/mage_enemy_sprite_sheet.dart';
 
@@ -48,8 +49,8 @@ class DialogController {
             TextSpan(text: say.text, style: const TextStyle(fontSize: 22))
           ],
           person: SizedBox(
-            width: 100,
-            height: 100,
+            width: 150,
+            height: 150,
             child: say.animation,
           ),
           personSayDirection: say.direction,

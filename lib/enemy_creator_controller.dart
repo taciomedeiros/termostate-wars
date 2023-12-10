@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bonfire/npc/enemy/simple_enemy.dart';
 import 'package:flame/components.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:thermostate_wars/enemies/blue_enemy.dart';
@@ -29,8 +30,6 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
 
   EnemyCreatorStatus status = EnemyCreatorStatus.stopped;
 
-  //final _halfWidth = Red.initialSize.x / 2;
-
   EnemyCreatorController(this.worldSize)
       : super(period: timeInSecondsAppearingEnemies, repeat: true) {
     maxX = (worldSize.x.toInt() - tileSize * 5).toInt();
@@ -46,6 +45,16 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
 
   double get randomY => next(30, maxY).toDouble();
 
+  void enemyCreatorNotifyDeath(SimpleEnemy enemy) {
+    if (enemy is BlueEnemy) {
+      blueEnemyDied.add(enemy);
+    }
+
+    if (enemy is RedEnemy) {
+      redEnemyDied.add(enemy);
+    }
+  }
+
   void addBlueEnemies() {
     gameRef.addAll(
       List.generate(
@@ -53,6 +62,7 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
         (index) => BlueEnemy(
           Vector2(randomX, randomY),
           attack: blueAtack,
+          notifyDeath: enemyCreatorNotifyDeath,
         ),
       ),
     );
@@ -65,6 +75,7 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
         (index) => RedEnemy(
           Vector2(randomX, randomY),
           attack: redAtack,
+          notifyDeath: enemyCreatorNotifyDeath,
         ),
       ),
     );

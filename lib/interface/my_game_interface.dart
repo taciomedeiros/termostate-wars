@@ -9,13 +9,14 @@ class MyGameInterface extends GameInterface {
   int temperature = 0;
   String get amountOfKillsByType => 'Temperature: $temperature °C';
   TextComponent amountOfKeysComponent = TextComponent(text: '');
+  ThermostatBarComponent thermostatBarComponent = ThermostatBarComponent();
 
   GameController? _gameController;
 
   @override
   Future<void> onLoad() async {
     add(MyLifeBarComponent());
-    add(ThermostatBarComponent());
+    add(thermostatBarComponent);
     amountOfKeysComponent.text = amountOfKillsByType;
     amountOfKeysComponent.position = Vector2(gameRef.size.x / 2 - 64, 10);
     add(amountOfKeysComponent);
@@ -27,6 +28,8 @@ class MyGameInterface extends GameInterface {
   void update(double dt) {
     if (_gameController != null) {
       temperature = _gameController!.temperature;
+      thermostatBarComponent.temperature = temperature.toDouble();
+      amountOfKeysComponent.text = amountOfKillsByType;
     } else {
       final gameControllerList = gameRef.query<GameController>();
 

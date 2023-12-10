@@ -3,11 +3,12 @@ import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/enemies/red_enemy_sprite_sheet.dart';
 
 class RedEnemy extends SimpleEnemy {
+  Function(SimpleEnemy enemy) notifyDeath;
   bool _seePlayerClose = false;
   double? attack;
   int attackInterval = 600;
 
-  RedEnemy(Vector2 position, {this.attack})
+  RedEnemy(Vector2 position, {this.attack, required this.notifyDeath})
       : super(
           position: position, //required
           size: redEnemyConfig.size, //required
@@ -59,6 +60,7 @@ class RedEnemy extends SimpleEnemy {
 
   @override
   void die() {
+    notifyDeath?.call(this);
     gameRef.add(
       AnimatedGameObject(
         animation: RedEnemySpriteSheet.die,

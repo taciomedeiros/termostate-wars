@@ -4,11 +4,12 @@ import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/enemies/blue_enemy_sprite_sheet.dart';
 
 class BlueEnemy extends SimpleEnemy {
+  Function(SimpleEnemy enemy) notifyDeath;
   bool _seePlayerClose = false;
   double? attack;
   int attackInterval = blueEnemyConfig.attackInterval;
 
-  BlueEnemy(Vector2 position, {this.attack})
+  BlueEnemy(Vector2 position, {this.attack, required this.notifyDeath})
       : super(
           position: position, //required
           size: blueEnemyConfig.size, //required
@@ -60,6 +61,8 @@ class BlueEnemy extends SimpleEnemy {
 
   @override
   void die() {
+    notifyDeath?.call(this);
+
     animation?.playOnceOther(
       BlueEnemyAnimation.die,
       size: blueEnemyConfig.size,

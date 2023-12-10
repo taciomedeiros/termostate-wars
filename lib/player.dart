@@ -14,6 +14,7 @@ enum PlayerState {
   idle,
   attackMelee,
   attackRange,
+  dead,
 }
 
 class MainChar extends SimplePlayer with BlockMovementCollision {
@@ -150,5 +151,17 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
       size: Vector2.all(tileSize * 1),
       damage: attack,
     );
+  }
+
+  @override
+  void die() {
+    speed = 0;
+    currentState = PlayerState.dead;
+
+    animation?.playOnceOther(
+      PlayerAnimation.die,
+      onFinish: () => removeFromParent(),
+    );
+    super.die();
   }
 }

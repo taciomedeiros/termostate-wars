@@ -79,6 +79,7 @@ class RedEnemy extends SimpleEnemy {
           RedEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
+          runToTheEnd: true,
         );
       case Direction.left:
       case Direction.downLeft:
@@ -88,12 +89,14 @@ class RedEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipX: true,
+          runToTheEnd: true,
         );
       case Direction.down:
         animation?.playOnceOther(
           RedEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
+          runToTheEnd: true,
         );
       case Direction.up:
         animation?.playOnceOther(
@@ -102,17 +105,15 @@ class RedEnemy extends SimpleEnemy {
           offset: offset,
           flipY: true,
         );
-
       default:
         animation?.playOnceOther(
           RedEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
+          runToTheEnd: true,
         );
     }
   }
-
-  // 192 - 64
 
   void execAttack() {
     _playAttackAnimation();

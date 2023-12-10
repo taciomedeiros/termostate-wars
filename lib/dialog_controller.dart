@@ -19,15 +19,15 @@ final mageIdleWidget = MageEnemySpriteSheet.idleDown.asWidget();
 
 final initialDialog = [
   DialogConfig(
-    text: 'Bom vamos ver o que o destino nos reserva!',
+    text: "Well, let's see what fate has in store for us!",
     animation: mageIdleWidget,
   ),
   DialogConfig(
-    text: 'Existe muito calor por ai é preciso se manter hidratado!',
+    text: "There is a lot of heat out there, you need to stay hydrated!",
     animation: mageIdleWidget,
   ),
   DialogConfig(
-    text: 'Mas nos dias de frio não se pode esquecer de ligar o aquecedor!',
+    text: "But on cold days, don't forget to turn on the heater!",
     animation: mageIdleWidget,
   ),
 ];
@@ -46,7 +46,7 @@ class DialogController {
       dialog.map((say) {
         return Say(
           text: [
-            TextSpan(text: say.text, style: const TextStyle(fontSize: 22))
+            TextSpan(text: say.text, style: const TextStyle(fontFamily: 'VT323', fontSize: 36))
           ],
           person: SizedBox(
             width: 150,

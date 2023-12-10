@@ -23,9 +23,12 @@ class RedBossEnemy extends SimpleEnemy {
   Future<void> onLoad() {
     add(
       RectangleHitbox(
-        size: redBossEnemyConfig.size * 0.63,
+        size: Vector2(
+          redBossEnemyConfig.size.x * 0.40,
+          redBossEnemyConfig.size.y * 0.70,
+        ),
         position: Vector2(
-          6,
+          8,
           6,
         ),
       ),
@@ -69,7 +72,7 @@ class RedBossEnemy extends SimpleEnemy {
     super.die();
   }
 
-  void _playAttackAnimation(onFinish) {
+  void _playAttackAnimation() {
     Vector2 definedSize = redBossEnemyConfig.size * 3;
     Vector2 offset = Vector2.all(-32);
     switch (lastDirection) {
@@ -80,7 +83,7 @@ class RedBossEnemy extends SimpleEnemy {
           RedBossEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.left:
       case Direction.downLeft:
@@ -90,14 +93,14 @@ class RedBossEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipX: true,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.down:
         animation?.playOnceOther(
           RedBossEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.up:
         animation?.playOnceOther(
@@ -105,7 +108,7 @@ class RedBossEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipY: true,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
 
       default:
@@ -113,23 +116,21 @@ class RedBossEnemy extends SimpleEnemy {
           RedBossEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
     }
   }
 
   void execAttack() {
-    _playAttackAnimation(() {
-      simpleAttackMelee(
-        size: Vector2.all(tileSize * 3),
-        damage: attack ?? redBossEnemyConfig.attack,
-        interval: attackInterval,
-        execute: () {
-          //Sounds.attackEnemyMelee();
-        },
-        //animationRight: RedBossEnemySpriteSheet.attackRight,
-      );
-    });
+    simpleAttackMelee(
+      size: Vector2.all(tileSize * 3),
+      damage: attack ?? redBossEnemyConfig.attack,
+      interval: 10,
+      execute: () {
+        //Sounds.attackEnemyMelee();
+        _playAttackAnimation();
+      },
+    );
   }
 
   @override

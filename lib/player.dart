@@ -31,7 +31,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
           size: Vector2.all(16),
           position: position,
           speed: 64,
-          life: 40,
+          life: 100,
         ) {
     setupMovementByJoystick(intensityEnabled: true);
   }
@@ -143,14 +143,15 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     // }
     currentState = PlayerState.attackMelee;
     speed = 0;
-    _playAttackAnimation();
-    await Future.delayed(
+
+    /*await Future.delayed(
       const Duration(milliseconds: 200),
-    ); // Adjust the duration as needed
+    );*/ // Adjust the duration as needed
     simpleAttackMelee(
       size: Vector2.all(tileSize * 1),
       damage: attack,
     );
+    _playAttackAnimation();
   }
 
   @override

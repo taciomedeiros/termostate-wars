@@ -6,6 +6,7 @@ Vector2 mapSize = Vector2.all(30);
 Vector2 initialPlayerPosition = Vector2(150, 200);
 Vector2 initialMagePosition = Vector2(80, 200);
 Vector2 initialBossPosition = Vector2(80, 300);
+//Vector2 initialBossPosition = Vector2(90, 230);
 
 double timeInSecondsAppearingEnemies = 5;
 
@@ -53,7 +54,7 @@ final blueBossEnemyConfig = EnemyConfig(
   speed: 20,
   rangeVision: 200,
   attack: 20,
-  attackInterval: 800,
+  attackInterval: 1000,
 );
 
 final redBossEnemyConfig = EnemyConfig(

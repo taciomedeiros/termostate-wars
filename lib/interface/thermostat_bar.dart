@@ -13,19 +13,9 @@ class ThermostatBarComponent extends InterfaceComponent {
   ThermostatBarComponent()
       : super(
           id: 2,
-          position: Vector2(640, 4),
+          position: Vector2(550, 5),
           size: Vector2(120, 40),
         );
-
-  @override
-  Future<void> onLoad() {
-    return super.onLoad();
-  }
-
-  @override
-  void update(double t) {
-    super.update(t);
-  }
 
   @override
   void render(Canvas c) {

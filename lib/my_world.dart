@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/npcs/mage_npc.dart';
 import 'package:thermostate_wars/wall.dart';
+import 'package:flame_audio/flame_audio.dart';
 
 class MyWorld extends WorldMapByTiled {
   late Vector2 worldCenter;
@@ -14,6 +15,9 @@ class MyWorld extends WorldMapByTiled {
 
   @override
   Future<void>? onLoad() {
+    FlameAudio.bgm.initialize();
+    FlameAudio.bgm.play('background_music.mp3');
+
     worldCenter = Vector2(mapSize.x / 2, mapSize.x / 2);
 
     gameRef.add(MageNpc(initialMagePosition));

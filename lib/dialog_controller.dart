@@ -46,7 +46,7 @@ class DialogController {
       dialog.map((say) {
         return Say(
           text: [
-            TextSpan(text: say.text, style: const TextStyle(fontSize: 22))
+            TextSpan(text: say.text, style: const TextStyle(fontFamily: 'VT323', fontSize: 36))
           ],
           person: SizedBox(
             width: 150,

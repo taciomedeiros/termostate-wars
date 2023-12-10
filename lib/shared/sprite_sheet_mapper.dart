@@ -2,7 +2,11 @@ import 'package:bonfire/bonfire.dart';
 
 enum PlayerSpriteRow {
   dancingRight,
+  dancingDown,
+  dancingUp,
   walkRight,
+  walkDown,
+  walkUp,
   attackRight,
   attackUp,
   attackDown,
@@ -14,8 +18,16 @@ extension PlayerSpriteVector on PlayerSpriteRow {
     switch (this) {
       case PlayerSpriteRow.walkRight:
         return Vector2(0 * 64, 11 * 64);
+      case PlayerSpriteRow.walkDown:
+        return Vector2(0 * 64, 10 * 64);
+      case PlayerSpriteRow.walkUp:
+        return Vector2(0 * 64, 8 * 64);
       case PlayerSpriteRow.dancingRight:
         return Vector2(0 * 64, 3 * 64);
+      case PlayerSpriteRow.dancingDown:
+        return Vector2(0 * 64, 2 * 64);
+      case PlayerSpriteRow.dancingUp:
+        return Vector2(0 * 64, 0 * 64);
       case PlayerSpriteRow.die:
         return Vector2(0 * 64, 20 * 64);
       case PlayerSpriteRow.attackUp:

@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/animation.dart';
 import 'package:flutter/services.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/shared/player_sprite_sheet.dart';
@@ -35,18 +36,13 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
           life: 200,
         ) {
     setupMovementByJoystick(intensityEnabled: true);
-    // setupLighting(
-    //   LightingConfig(
-    //     radius: width * 1.5,
-    //     color: Colors.transparent,
-    //   ),
-    // );
   }
   @override
   void onJoystickChangeDirectional(JoystickDirectionalEvent event) {
     if (hasGameRef && gameRef.sceneBuilderStatus.isRunning) {
       return;
     }
+
     super.onJoystickChangeDirectional(event);
   }
 
@@ -58,12 +54,8 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     if (event.event == ActionEvent.DOWN) {
       if (event.id == LogicalKeyboardKey.space ||
           event.id == PlayerAttackType.attackMelee) {
-        // if (barLifeController.stamina >= 15) {
-        //   decrementStamina(15);
-        currentState = PlayerState.attackMelee;
         execAttack();
       }
-      //execMeleeAttack(attack);
     }
 
     super.onJoystickAction(event);
@@ -86,10 +78,12 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   void update(double dt) {
-    if (currentState == PlayerState.attackMelee) {}
-    // final roundedPositionVector = position.clone();
-    //roundedPositionVector.round();
-    // textPosition.text = roundedPositionVector.toString();
+    if (currentState == PlayerState.attackMelee) {
+      speed = 0;
+    }
+    if (currentState == PlayerState.idle) {
+      speed = 64;
+    }
     super.update(dt);
   }
 
@@ -103,6 +97,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
           PlayerAnimation.attackRight,
           size: definedSize,
           offset: offset,
+          onFinish: () => currentState = PlayerState.idle,
         );
       case Direction.left:
       case Direction.downLeft:
@@ -111,30 +106,40 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
           size: definedSize,
           offset: offset,
           flipX: true,
+          onFinish: () => currentState = PlayerState.idle,
         );
       case Direction.down:
         animation?.playOnceOther(
           PlayerAnimation.attackDown,
           size: definedSize,
           offset: offset,
+          onFinish: () => currentState = PlayerState.idle,
         );
       case Direction.up:
         animation?.playOnceOther(
           PlayerAnimation.attackUp,
           size: definedSize,
           offset: offset,
+          onFinish: () => currentState = PlayerState.idle,
         );
       default:
         animation?.playOnceOther(
           PlayerAnimation.die,
           size: definedSize, // the bug is here
           offset: offset, // the bug is here
+          onFinish: () => currentState = PlayerState.idle,
         );
     }
   }
 
-  void execAttack() {
+  Future<void> execAttack() async {
+    if (currentState == PlayerState.attackMelee) {
+      return;
+    }
+    currentState = PlayerState.attackMelee;
     _playAttackAnimation();
+    await Future.delayed(
+        const Duration(milliseconds: 200)); // Adjust the duration as needed
     simpleAttackMelee(
       size: Vector2.all(tileSize * 1),
       damage: attack,

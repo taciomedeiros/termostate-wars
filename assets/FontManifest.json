@@ -1,0 +1,10 @@
+[
+    {
+        "family": "VT323",
+        "fonts": [
+            {
+                "asset": "fonts/VT323-Regular.ttf"
+            }
+        ]
+    }
+]

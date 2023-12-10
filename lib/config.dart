@@ -55,3 +55,12 @@ final blueBossEnemyConfig = EnemyConfig(
   attack: 20,
   attackInterval: 800,
 );
+
+final redBossEnemyConfig = EnemyConfig(
+  life: 50,
+  size: Vector2.all(32),
+  speed: 50,
+  rangeVision: 500,
+  attack: 20,
+  attackInterval: 800,
+);

@@ -30,6 +30,7 @@ flutter:
     - assets/images/maps/
     - assets/images/player/player_rapier.png
     - assets/images/enemy/
+    - assets/images/enemy/red_boss.png
     - assets/audio/background_music.mp3
 
   #   - images/a_dot_burr.jpeg

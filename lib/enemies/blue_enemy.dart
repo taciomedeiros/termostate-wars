@@ -62,12 +62,10 @@ class BlueEnemy extends SimpleEnemy {
   @override
   void die() {
     notifyDeath?.call(this);
-
-    animation?.playOnceOther(
-      BlueEnemyAnimation.die,
-      size: blueEnemyConfig.size,
-    );
-    removeFromParent();
+    speed = 0;
+    animation?.playOnce(BlueEnemySpriteSheet.die, onFinish: () async {
+      removeFromParent();
+    });
     super.die();
   }
 

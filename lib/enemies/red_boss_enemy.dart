@@ -62,12 +62,10 @@ class RedBossEnemy extends SimpleEnemy {
   @override
   void die() {
     notifyDeath?.call(this);
-
-    animation?.playOnceOther(
-      RedBossEnemyAnimation.die,
-      size: blueEnemyConfig.size,
-    );
-    removeFromParent();
+    speed = 0;
+    animation?.playOnce(RedBossEnemySpriteSheet.die, onFinish: () async {
+      removeFromParent();
+    });
     super.die();
   }
 

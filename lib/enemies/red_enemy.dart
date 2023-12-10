@@ -61,15 +61,10 @@ class RedEnemy extends SimpleEnemy {
   @override
   void die() {
     notifyDeath?.call(this);
-    gameRef.add(
-      AnimatedGameObject(
-        animation: RedEnemySpriteSheet.die,
-        position: position,
-        size: redEnemyConfig.size,
-        loop: false,
-      ),
-    );
-    removeFromParent();
+    speed = 0;
+    animation?.playOnce(RedEnemySpriteSheet.die, onFinish: () async {
+      removeFromParent();
+    });
     super.die();
   }
 

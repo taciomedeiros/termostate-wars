@@ -32,9 +32,24 @@ final initialDialog = [
   ),
 ];
 
-final endBlueEnemyDialog = [];
-final endRedEnemyDialog = [];
-final endMageEnemyDialog = [];
+final endBlueEnemyDialog = [
+  DialogConfig(
+    text: "As soon as there was no more heat, the ice took over and the humanity became a popsicle.",
+    animation: mageIdleWidget,
+  ),
+];
+final endRedEnemyDialog = [
+  DialogConfig(
+    text: "The balance was broken, the planet overheated, and unfortunately everyone melted.",
+    animation: mageIdleWidget,
+  ),
+];
+final endMageEnemyDialog = [
+  DialogConfig(
+    text: "The war to maintain control of the air conditioning continues... the balance remains... for now...",
+    animation: mageIdleWidget,
+  ),
+];
 
 class DialogController {
   static showDialog(gameRef, List<DialogConfig> dialog, {Function? onClose}) {

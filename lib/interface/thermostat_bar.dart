@@ -18,16 +18,6 @@ class ThermostatBarComponent extends InterfaceComponent {
         );
 
   @override
-  Future<void> onLoad() {
-    return super.onLoad();
-  }
-
-  @override
-  void update(double t) {
-    super.update(t);
-  }
-
-  @override
   void render(Canvas c) {
     try {
       _drawThermostat(c);

@@ -1,7 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:thermostate_wars/config.dart';
-import 'package:thermostate_wars/effects/gravity_sprite_sheet.dart';
 import 'package:thermostate_wars/enemies/blue_boss_sprite_sheet.dart';
 import 'package:thermostate_wars/enemies/blue_enemy_sprite_sheet.dart';
 

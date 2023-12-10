@@ -5,8 +5,8 @@ double initialZoom = 5;
 Vector2 mapSize = Vector2.all(30);
 Vector2 initialPlayerPosition = Vector2(150, 200);
 Vector2 initialMagePosition = Vector2(80, 200);
-//Vector2 initialBossPosition = Vector2(80, 300);
-Vector2 initialBossPosition = Vector2(90, 230);
+Vector2 initialBossPosition = Vector2(80, 300);
+//Vector2 initialBossPosition = Vector2(90, 230);
 
 double timeInSecondsAppearingEnemies = 5;
 

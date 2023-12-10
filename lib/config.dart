@@ -5,6 +5,7 @@ double initialZoom = 5;
 Vector2 mapSize = Vector2.all(30);
 Vector2 initialPlayerPosition = Vector2(150, 200);
 Vector2 initialMagePosition = Vector2(80, 200);
+Vector2 initialBossPosition = Vector2(80, 300);
 
 double timeInSecondsAppearingEnemies = 5;
 
@@ -29,12 +30,13 @@ class EnemyConfig {
 }
 
 final redEnemyConfig = EnemyConfig(
-    life: 2,
-    size: Vector2.all(16),
-    speed: 5,
-    rangeVision: 20,
-    attack: 20,
-    attackInterval: 600);
+  life: 2,
+  size: Vector2.all(16),
+  speed: 5,
+  rangeVision: 20,
+  attack: 20,
+  attackInterval: 600,
+);
 
 final blueEnemyConfig = EnemyConfig(
   life: 2,
@@ -47,9 +49,9 @@ final blueEnemyConfig = EnemyConfig(
 
 final blueBossEnemyConfig = EnemyConfig(
   life: 10,
-  size: Vector2.all(48),
+  size: Vector2.all(32),
   speed: 20,
-  rangeVision: 40,
+  rangeVision: 200,
   attack: 20,
-  attackInterval: 600,
+  attackInterval: 800,
 );

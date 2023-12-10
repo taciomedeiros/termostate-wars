@@ -54,7 +54,7 @@ class _MyGameWidgetState extends State<MyGameWidget> {
   @override
   Widget build(BuildContext context) {
     return BonfireWidget(
-      //showCollisionArea: true,
+      showCollisionArea: true,
       joystick: kIsWeb
           ? Joystick(
               keyboardConfig: KeyboardConfig(

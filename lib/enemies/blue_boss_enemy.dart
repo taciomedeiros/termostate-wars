@@ -1,14 +1,17 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:thermostate_wars/config.dart';
+import 'package:thermostate_wars/effects/gravity_sprite_sheet.dart';
 import 'package:thermostate_wars/enemies/blue_boss_sprite_sheet.dart';
 import 'package:thermostate_wars/enemies/blue_enemy_sprite_sheet.dart';
 
-class BlueBossEnemy extends SimpleEnemy {
+class BlueBossEnemy extends SimpleEnemy with PathFinding {
   Function(SimpleEnemy enemy) notifyDeath;
   bool _seePlayerClose = false;
   double? attack;
   int attackInterval = blueBossEnemyConfig.attackInterval;
+
+  bool trackedPlayer = false;
 
   BlueBossEnemy(Vector2 position, {this.attack, required this.notifyDeath})
       : super(
@@ -17,27 +20,36 @@ class BlueBossEnemy extends SimpleEnemy {
           life: blueBossEnemyConfig.life,
           speed: blueBossEnemyConfig.speed,
           initDirection: Direction.right,
-          animation: BlueEnemySpriteSheet.simpleDirectionAnimation,
+          animation: BlueBossEnemySpriteSheet.simpleDirectionAnimation,
         );
 
   @override
   Future<void> onLoad() {
     add(
       RectangleHitbox(
-        size: Vector2(3, 5),
-        position: Vector2(
-          6,
-          6,
-        ),
+        size: Vector2(8, 16),
+        position: Vector2(12, 12),
       ),
     );
+
     return super.onLoad();
   }
 
   @override
   void update(double dt) {
     _seePlayerClose = false;
+
+    if (!trackedPlayer && gameRef.player != null) {
+      trackedPlayer = true;
+      moveTowardsTarget<Player>(target: gameRef.player!);
+    }
+
     seePlayer(
+      notObserved: () {
+        if (checkInterval('trackedPlayer', 6000, dt)) {
+          //trackedPlayer = false;
+        }
+      },
       observed: (player) {
         _seePlayerClose = true;
         seeAndMoveToPlayer(
@@ -73,8 +85,8 @@ class BlueBossEnemy extends SimpleEnemy {
   }
 
   void _playAttackAnimation(onFinish) {
-    Vector2 definedSize = Vector2.all(48);
-    Vector2 offset = Vector2.all(-16);
+    Vector2 definedSize = blueBossEnemyConfig.size * 3;
+    Vector2 offset = Vector2.all(-32);
     switch (lastDirection) {
       case Direction.right:
       case Direction.downRight:
@@ -97,7 +109,7 @@ class BlueBossEnemy extends SimpleEnemy {
         );
       case Direction.down:
         animation?.playOnceOther(
-          BlueEnemyAnimation.attackDown,
+          BlueBossEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
           onFinish: onFinish,
@@ -123,7 +135,17 @@ class BlueBossEnemy extends SimpleEnemy {
 
   void execAttack() {
     _playAttackAnimation(() {
-      simpleAttackRange(
+      simpleAttackMelee(
+        size: blueBossEnemyConfig.size,
+        damage: blueBossEnemyConfig.attack,
+        interval: attackInterval,
+        animationRight: GravitySpriteSheet.sequence,
+        execute: () {
+          //Sounds.attackEnemyMelee();
+        },
+      );
+
+      /*simpleAttackRange(
           size: Vector2.all(tileSize * 0.62),
           damage: attack ?? blueEnemyConfig.attack,
           interval: attackInterval,
@@ -135,6 +157,7 @@ class BlueBossEnemy extends SimpleEnemy {
           collision: CircleHitbox(
             radius: 10.0,
           ));
+          */
     });
   }
 

@@ -13,7 +13,7 @@ class ThermostatBarComponent extends InterfaceComponent {
   ThermostatBarComponent()
       : super(
           id: 2,
-          position: Vector2(650, 5),
+          position: Vector2(640, 4),
           size: Vector2(120, 40),
         );
 
@@ -70,7 +70,7 @@ class ThermostatBarComponent extends InterfaceComponent {
     if (currentTemperature > height - (heightBar / 3)) {
       return Colors.red;
     }
-    if (currentTemperature > (widthBar / 3)) {
+    if (currentTemperature > (heightBar / 3)) {
       return Colors.orange;
     } else {
       return Colors.blue;

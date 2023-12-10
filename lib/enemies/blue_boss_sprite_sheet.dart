@@ -5,7 +5,7 @@ enum BlueBossEnemyAnimation { attackRight, attackDown, die }
 
 class BlueBossEnemySpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "enemy/blue_enemy.png",
+        "enemy/blue_boss.png",
         SpriteAnimationData.sequenced(
           texturePosition: EnemySpriteRow.idleRight.vector,
           amount: 4,
@@ -15,7 +15,7 @@ class BlueBossEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "enemy/blue_enemy.png",
+        "enemy/blue_boss.png",
         SpriteAnimationData.sequenced(
           texturePosition: EnemySpriteRow.walkRight.vector,
           amount: 8,
@@ -25,7 +25,7 @@ class BlueBossEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get attackRight => SpriteAnimation.load(
-        "enemy/blue_enemy.png",
+        "enemy/blue_boss.png",
         SpriteAnimationData.sequenced(
           texturePosition: EnemySpriteRow.attackRight.vector,
           amount: 5,
@@ -35,7 +35,7 @@ class BlueBossEnemySpriteSheet {
       );
 
   static Future<SpriteAnimation> get attackDown => SpriteAnimation.load(
-        "enemy/blue_enemy.png",
+        "enemy/blue_boss.png",
         SpriteAnimationData.sequenced(
           texturePosition: EnemySpriteRow.attackDown.vector,
           amount: 5,
@@ -44,7 +44,7 @@ class BlueBossEnemySpriteSheet {
         ),
       );
   static Future<SpriteAnimation> get die => SpriteAnimation.load(
-        "enemy/blue_enemy.png",
+        "enemy/blue_boss.png",
         SpriteAnimationData.sequenced(
           texturePosition: EnemySpriteRow.attackDown.vector,
           amount: 5,

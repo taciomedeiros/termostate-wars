@@ -31,7 +31,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
           size: Vector2.all(16),
           position: position,
           speed: 64,
-          life: 200,
+          life: 40,
         ) {
     setupMovementByJoystick(intensityEnabled: true);
   }
@@ -68,7 +68,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
       RectangleHitbox(
         size: Vector2(3, 5),
         position: Vector2(
-          6,
+          7,
           6,
         ),
       ),
@@ -158,9 +158,8 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     speed = 0;
     currentState = PlayerState.dead;
 
-    animation?.playOnceOther(
-      PlayerAnimation.die,
-      onFinish: () => removeFromParent(),
+    animation?.playOnce(
+      PlayerSpriteSheet.die,
     );
     super.die();
   }

@@ -1,0 +1,68 @@
+{
+    "bodyTypeName": "muscular",
+    "url": "https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_blue&head=Orc_male_blue&sex=muscular&eyes=Eyes_cyclope&weapon=Waraxe_waraxe&legs=none&shoes=Hoofs_blue",
+    "spritesheets": "https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/spritesheets/",
+    "version": 1,
+    "datetime": "10/12/2023, 10:59:45",
+    "credits": "Authors: bluecarrot16, Evert, TheraHedwig, MuffinElZangano, Durrani, Sander Frenken (castelonia), Benjamin K. Smith (BenCreating), Eliza Wyatt (ElizaWy), dalonedrau, Stephen Challener (Redshrike), Matthew Krohn (makrohn), Zi Ye, kirts\n\n- body/bodies/muscular/universal/blue.png: by bluecarrot16, Evert, TheraHedwig, MuffinElZangano, Durrani, Sander Frenken (castelonia), Benjamin K. Smith (BenCreating), Eliza Wyatt (ElizaWy), dalonedrau, Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0. \n    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles\n    - https://opengameart.org/content/lpc-barbarian-sprite-base\n    - https://opengameart.org/content/lpc-muscular-swing-animation\n    - https://opengameart.org/content/lpc-muscular-hurt-animation\n    - https://opengameart.org/content/lpc-jump-expanded\n\n- head/heads/orc_male/universal/blue.png: by bluecarrot16, Matthew Krohn (makrohn), Stephen Challener (Redshrike), Zi Ye. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/four-characters-my-lpc-entries\n    - https://opengameart.org/content/sinbad-the-ogre\n    - https://opengameart.org/content/lpc-male-sheets\n    - https://opengameart.org/content/lpc-character-bases\n\n- eyes/male/cyclope.png: by kirts. License(s): CC0. \n    - https://opengameart.org/content/cyclops-and-his-eye\n\n- feet/hoofs/male/blue.png: by Evert. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-faun-and-minotaur\n\n- weapon/blunt/waraxe/behind/waraxe.png: by Benjamin K. Smith (BenCreating), bluecarrot16, Sander Frenken (castelonia). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-weapons\n\n- weapon/blunt/waraxe/waraxe.png: by Benjamin K. Smith (BenCreating), bluecarrot16, Sander Frenken (castelonia). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-weapons\n\n- weapon/blunt/waraxe/attack_slash/behind/waraxe.png: by Benjamin K. Smith (BenCreating), bluecarrot16, Sander Frenken (castelonia). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-weapons\n\n- weapon/blunt/waraxe/attack_slash/waraxe.png: by Benjamin K. Smith (BenCreating), bluecarrot16, Sander Frenken (castelonia). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-weapons",
+    "layers": [
+      {
+        "fileName": "weapon/blunt/waraxe/attack_slash/behind/waraxe.png",
+        "zPos": 8,
+        "custom_animation": "slash_oversize",
+        "parentName": "weapon",
+        "name": "Waraxe",
+        "variant": "waraxe"
+      },
+      {
+        "fileName": "weapon/blunt/waraxe/behind/waraxe.png",
+        "zPos": 9,
+        "parentName": "weapon",
+        "name": "Waraxe",
+        "variant": "waraxe"
+      },
+      {
+        "fileName": "body/bodies/muscular/universal/blue.png",
+        "zPos": 10,
+        "parentName": "body",
+        "name": "Body color",
+        "variant": "blue"
+      },
+      {
+        "fileName": "feet/hoofs/male/blue.png",
+        "zPos": 15,
+        "parentName": "shoes",
+        "name": "Hoofs",
+        "variant": "blue"
+      },
+      {
+        "fileName": "head/heads/orc_male/universal/blue.png",
+        "zPos": 100,
+        "parentName": "head",
+        "name": "Orc male",
+        "variant": "blue"
+      },
+      {
+        "fileName": "eyes/male/cyclope.png",
+        "zPos": 105,
+        "parentName": "eyes",
+        "name": "Eyes",
+        "variant": "cyclope"
+      },
+      {
+        "fileName": "weapon/blunt/waraxe/waraxe.png",
+        "zPos": 140,
+        "parentName": "weapon",
+        "name": "Waraxe",
+        "variant": "waraxe"
+      },
+      {
+        "fileName": "weapon/blunt/waraxe/attack_slash/waraxe.png",
+        "zPos": 150,
+        "custom_animation": "slash_oversize",
+        "parentName": "weapon",
+        "name": "Waraxe",
+        "variant": "waraxe"
+      }
+    ]
+  }

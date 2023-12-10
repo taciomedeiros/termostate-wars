@@ -141,6 +141,7 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     //   return;
     // }
     currentState = PlayerState.attackMelee;
+    speed = 0;
     _playAttackAnimation();
     await Future.delayed(
       const Duration(milliseconds: 200),

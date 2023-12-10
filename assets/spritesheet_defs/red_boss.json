@@ -1,0 +1,145 @@
+{
+    "bodyTypeName": "male",
+    "url": "https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_amber&head=Human_male_amber&sex=male&wings=Lizard_wings_amber&tail=Lizard_tail_amber&shoulders=Plate_iron&arms=Armour_iron&bracers=Bracers_copper&gloves=Gloves_red&armour=Plate_iron&hat=Horned_helmet_ceramic&weapon=Glowsword_red&legs=Armour_iron&shoes=Armour_iron&bauldron=Bauldron_tan&shield=none",
+    "spritesheets": "https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/spritesheets/",
+    "version": 1,
+    "datetime": "10/12/2023, 11:15:08",
+    "credits": "Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Nila122, Shaun Williams, Matthew Krohn (makrohn), Johannes Sjölund (wulax), Sander Frenken (castelonia), Michael Whitlock (bigbeargames), tskaufma\n\n- body/bodies/male/universal/amber.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles\n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-male-jumping-animation-by-durrani\n    - https://opengameart.org/content/lpc-runcycle-and-diagonal-walkcycle\n    - https://opengameart.org/content/lpc-revised-character-basics\n\n- body/wings/lizard/fg/amber.png: by Nila122, bluecarrot16. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/drakes-and-lizardfolk\n\n- body/wings/lizard/bg/amber.png: by Nila122, bluecarrot16. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/drakes-and-lizardfolk\n\n- body/tail/lizard/fg/amber.png: by Nila122, bluecarrot16. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/drakes-and-lizardfolk\n\n- body/tail/lizard/bg/amber.png: by Nila122, bluecarrot16. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/drakes-and-lizardfolk\n\n- head/heads/human_male/universal/amber.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles\n    - https://opengameart.org/content/lpc-character-bases\n\n- hat/helmet/horned/male/ceramic.png: by bluecarrot16, Shaun Williams, Matthew Krohn (makrohn), Johannes Sjölund (wulax), Sander Frenken (castelonia). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-full-plate-golden-armor\n    - https://opengameart.org/content/lpc-full-plate-golden-armor-0\n    - https://opengameart.org/content/lpc-helmets-mega-pack\n\n- shoulders/plate/male/iron.png: by bluecarrot16, Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - http://opengameart.org/content/lpc-clothing-updates\n\n- arms/armour/plate/male/iron.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - http://opengameart.org/content/lpc-clothing-updates\n\n- bauldron/male/tan.png: by Nila122. License(s): GPL 2.0, GPL 3.0, CC-BY-SA 3.0. \n    - https://opengameart.org/content/more-lpc-clothes-and-hair\n\n- arms/bracers/male/copper.png: by Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n\n- gloves/male/red.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax), bluecarrot16. License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - http://opengameart.org/content/lpc-clothing-updates\n\n- torso/armour/plate/male/iron.png: by Michael Whitlock (bigbeargames), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-combat-armor-for-women\n\n- legs/armour/plate/male/iron.png: by bluecarrot16, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n\n- feet/armour/plate/male/iron.png: by Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n\n- weapon/sword/glowsword/red.png: by bluecarrot16, tskaufma, Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-glow-sword\n    - https://opengameart.org/content/lpc-extended-weapon-animations\n\n- weapon/sword/glowsword/universal_behind/red.png: by bluecarrot16, tskaufma, Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-glow-sword\n    - https://opengameart.org/content/lpc-extended-weapon-animations\n\n- weapon/sword/glowsword/attack_slash/behind/red.png: by bluecarrot16, tskaufma, Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-glow-sword\n    - https://opengameart.org/content/lpc-extended-weapon-animations\n\n- weapon/sword/glowsword/attack_slash/red.png: by bluecarrot16, tskaufma, Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0. \n    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites\n    - https://opengameart.org/content/lpc-glow-sword\n    - https://opengameart.org/content/lpc-extended-weapon-animations",
+    "layers": [
+      {
+        "fileName": "body/wings/lizard/bg/amber.png",
+        "zPos": 5,
+        "parentName": "wings",
+        "name": "Lizard wings",
+        "variant": "amber"
+      },
+      {
+        "fileName": "body/tail/lizard/bg/amber.png",
+        "zPos": 5,
+        "parentName": "tail",
+        "name": "Lizard tail",
+        "variant": "amber"
+      },
+      {
+        "fileName": "weapon/sword/glowsword/attack_slash/behind/red.png",
+        "zPos": 8,
+        "custom_animation": "slash_oversize",
+        "parentName": "weapon",
+        "name": "Glowsword",
+        "variant": "red"
+      },
+      {
+        "fileName": "weapon/sword/glowsword/universal_behind/red.png",
+        "zPos": 9,
+        "parentName": "weapon",
+        "name": "Glowsword",
+        "variant": "red"
+      },
+      {
+        "fileName": "body/bodies/male/universal/amber.png",
+        "zPos": 10,
+        "parentName": "body",
+        "name": "Body color",
+        "variant": "amber"
+      },
+      {
+        "fileName": "feet/armour/plate/male/iron.png",
+        "zPos": 15,
+        "parentName": "shoes",
+        "name": "Armour",
+        "variant": "iron"
+      },
+      {
+        "fileName": "legs/armour/plate/male/iron.png",
+        "zPos": 20,
+        "parentName": "legs",
+        "name": "Armour",
+        "variant": "iron"
+      },
+      {
+        "fileName": "arms/armour/plate/male/iron.png",
+        "zPos": 60,
+        "parentName": "arms",
+        "name": "Armour",
+        "variant": "iron"
+      },
+      {
+        "fileName": "torso/armour/plate/male/iron.png",
+        "zPos": 60,
+        "parentName": "armour",
+        "name": "Plate",
+        "variant": "iron"
+      },
+      {
+        "fileName": "shoulders/plate/male/iron.png",
+        "zPos": 65,
+        "parentName": "shoulders",
+        "name": "Plate",
+        "variant": "iron"
+      },
+      {
+        "fileName": "bauldron/male/tan.png",
+        "zPos": 65,
+        "parentName": "bauldron",
+        "name": "Bauldron",
+        "variant": "tan"
+      },
+      {
+        "fileName": "arms/bracers/male/copper.png",
+        "zPos": 70,
+        "parentName": "bracers",
+        "name": "Bracers",
+        "variant": "copper"
+      },
+      {
+        "fileName": "gloves/male/red.png",
+        "zPos": 70,
+        "parentName": "gloves",
+        "name": "Gloves",
+        "variant": "red"
+      },
+      {
+        "fileName": "body/wings/lizard/fg/amber.png",
+        "zPos": 85,
+        "parentName": "wings",
+        "name": "Lizard wings",
+        "variant": "amber"
+      },
+      {
+        "fileName": "body/tail/lizard/fg/amber.png",
+        "zPos": 85,
+        "parentName": "tail",
+        "name": "Lizard tail",
+        "variant": "amber"
+      },
+      {
+        "fileName": "head/heads/human_male/universal/amber.png",
+        "zPos": 100,
+        "parentName": "head",
+        "name": "Human male",
+        "variant": "amber"
+      },
+      {
+        "fileName": "hat/helmet/horned/male/ceramic.png",
+        "zPos": 130,
+        "parentName": "hat",
+        "name": "Horned helmet",
+        "variant": "ceramic"
+      },
+      {
+        "fileName": "weapon/sword/glowsword/red.png",
+        "zPos": 140,
+        "parentName": "weapon",
+        "name": "Glowsword",
+        "variant": "red"
+      },
+      {
+        "fileName": "weapon/sword/glowsword/attack_slash/red.png",
+        "zPos": 150,
+        "custom_animation": "slash_oversize",
+        "parentName": "weapon",
+        "name": "Glowsword",
+        "variant": "red"
+      }
+    ]
+  }

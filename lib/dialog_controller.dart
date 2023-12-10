@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:thermostate_wars/shared/mage_enemy_sprite_sheet.dart';
+import 'package:thermostate_wars/npcs/mage_enemy_sprite_sheet.dart';
 
 class DialogConfig {
   String text;

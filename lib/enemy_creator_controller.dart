@@ -74,7 +74,7 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
       return;
     }
 
-    const amountEnemies = 10;
+    const amountEnemies = 1;
 
     if (blueDeadEnemies == redDeadEnemies && redDeadEnemies == amountEnemies) {}
 

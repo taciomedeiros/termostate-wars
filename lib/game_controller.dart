@@ -1,8 +1,12 @@
 import 'dart:async';
 
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:thermostate_wars/config.dart';
+import 'package:thermostate_wars/dialog_controller.dart';
 import 'package:thermostate_wars/enemy_creator_controller.dart';
+import 'package:thermostate_wars/npcs/mage_npc.dart';
 
 enum GameStatus {
   redBoss,
@@ -19,6 +23,31 @@ class GameController extends GameComponent {
   bool startEnemyCreation = false;
   bool showGameOver = false;
 
+  void showTalk(
+    gameObject,
+    List<DialogConfig> dialogConfig,
+  ) {
+    final lastZoom = gameRef.camera.zoom;
+
+    gameRef.player!.stopMove();
+
+    gameRef.camera.moveToTargetAnimated(
+      target: gameObject,
+      effectController: EffectController(
+        duration: 0.5,
+        curve: Curves.easeInOut,
+      ),
+      zoom: 10,
+      onComplete: DialogController.showDialog(
+        gameRef,
+        dialogConfig,
+        onClose: () {
+          //Finaliza o jogo
+        },
+      ),
+    );
+  }
+
   @override
   FutureOr<void> onLoad() {
     enemyCreator.redEnemyDied.listen((_) {
@@ -28,6 +57,24 @@ class GameController extends GameComponent {
     enemyCreator.blueEnemyDied.listen((_) {
       killedEnemies["blue"] = killedEnemies["blue"]! + 1;
       calcTemperature();
+    });
+
+    enemyCreator.gameStatus.listen((status) {
+      if (status == GameStatus.blueBoss) {
+        final npc = MageNpc(initialMagePosition);
+        gameRef.add(npc);
+        showTalk(npc, endBlueEnemyDialog);
+      }
+      if (status == GameStatus.redBoss) {
+        final npc = MageNpc(initialMagePosition);
+        gameRef.add(npc);
+        showTalk(npc, endBlueEnemyDialog);
+      }
+      if (status == GameStatus.draw) {
+        final npc = MageNpc(initialMagePosition);
+        gameRef.add(npc);
+        showTalk(npc, endBlueEnemyDialog);
+      }
     });
 
     add(enemyCreator);

@@ -116,12 +116,12 @@ class RedEnemy extends SimpleEnemy {
   }
 
   void execAttack() {
-    _playAttackAnimation();
     simpleAttackMelee(
       size: Vector2.all(tileSize * 0.62),
       damage: attack ?? redEnemyConfig.attack,
       interval: attackInterval,
       execute: () {
+        _playAttackAnimation();
         //Sounds.attackEnemyMelee();
       },
     );

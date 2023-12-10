@@ -69,7 +69,7 @@ class BlueEnemy extends SimpleEnemy {
     super.die();
   }
 
-  void _playAttackAnimation(onFinish) {
+  void _playAttackAnimation() {
     Vector2 definedSize = Vector2.all(48);
     Vector2 offset = Vector2.all(-16);
     switch (lastDirection) {
@@ -80,7 +80,6 @@ class BlueEnemy extends SimpleEnemy {
           BlueEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
           runToTheEnd: true,
         );
       case Direction.left:
@@ -91,7 +90,6 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipX: true,
-          onFinish: onFinish,
           runToTheEnd: true,
         );
       case Direction.down:
@@ -99,7 +97,6 @@ class BlueEnemy extends SimpleEnemy {
           BlueEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
           runToTheEnd: true,
         );
       case Direction.up:
@@ -108,7 +105,6 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipY: true,
-          onFinish: onFinish,
           runToTheEnd: true,
         );
 
@@ -117,23 +113,21 @@ class BlueEnemy extends SimpleEnemy {
           BlueEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
           runToTheEnd: true,
         );
     }
   }
 
   void execAttack() {
-    _playAttackAnimation(() {
-      simpleAttackMelee(
-        size: Vector2.all(tileSize * 0.62),
-        damage: attack ?? blueEnemyConfig.attack,
-        interval: attackInterval,
-        execute: () {
-          //Sounds.attackEnemyMelee();
-        },
-      );
-    });
+    simpleAttackMelee(
+      size: Vector2.all(tileSize * 0.62),
+      damage: attack ?? blueEnemyConfig.attack,
+      interval: attackInterval,
+      execute: () {
+        //Sounds.attackEnemyMelee();
+        _playAttackAnimation();
+      },
+    );
   }
 
   @override

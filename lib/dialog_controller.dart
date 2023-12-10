@@ -17,7 +17,7 @@ class DialogConfig {
 
 final mageIdleWidget = MageEnemySpriteSheet.idleDown.asWidget();
 
-final initialDialog = [
+final List<DialogConfig> initialDialog = [
   DialogConfig(
     text: "Well, let's see what fate has in store for us!",
     animation: mageIdleWidget,
@@ -32,21 +32,24 @@ final initialDialog = [
   ),
 ];
 
-final endBlueEnemyDialog = [
+final List<DialogConfig> endBlueEnemyDialog = [
   DialogConfig(
-    text: "As soon as there was no more heat, the ice took over and the humanity became a popsicle.",
+    text:
+        "As soon as there was no more heat, the ice took over and the humanity became a popsicle.",
     animation: mageIdleWidget,
   ),
 ];
-final endRedEnemyDialog = [
+final List<DialogConfig> endRedEnemyDialog = [
   DialogConfig(
-    text: "The balance was broken, the planet overheated, and unfortunately everyone melted.",
+    text:
+        "The balance was broken, the planet overheated, and unfortunately everyone melted.",
     animation: mageIdleWidget,
   ),
 ];
-final endMageEnemyDialog = [
+final List<DialogConfig> endMageEnemyDialog = [
   DialogConfig(
-    text: "The war to maintain control of the air conditioning continues... the balance remains... for now...",
+    text:
+        "The war to maintain control of the air conditioning continues... the balance remains... for now...",
     animation: mageIdleWidget,
   ),
 ];
@@ -61,7 +64,9 @@ class DialogController {
       dialog.map((say) {
         return Say(
           text: [
-            TextSpan(text: say.text, style: const TextStyle(fontFamily: 'VT323', fontSize: 36))
+            TextSpan(
+                text: say.text,
+                style: const TextStyle(fontFamily: 'VT323', fontSize: 36))
           ],
           person: SizedBox(
             width: 150,

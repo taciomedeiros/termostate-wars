@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:bonfire/behavior/behavior.dart';
 import 'package:flame/components.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:thermostate_wars/blue_enemy.dart';
@@ -12,6 +11,9 @@ enum EnemyCreatorStatus { running, stopped }
 class EnemyCreator extends TimerComponent with HasGameRef {
   final Random random = Random();
   final Vector2 worldSize;
+
+  late int maxX;
+  late int maxY;
 
   int stageFactor = 1;
   int redAmountForCreation = 1;
@@ -30,20 +32,26 @@ class EnemyCreator extends TimerComponent with HasGameRef {
   //final _halfWidth = Red.initialSize.x / 2;
 
   EnemyCreator(this.worldSize)
-      : super(period: timeInSecondsAppearingEnemies, repeat: true);
+      : super(period: timeInSecondsAppearingEnemies, repeat: true) {
+    maxX = (worldSize.x.toInt() - tileSize * 5).toInt();
+    maxY = (worldSize.y.toInt() - tileSize * 2).toInt();
+  }
 
   BehaviorSubject<BlueEnemy> blueEnemyDied = BehaviorSubject<BlueEnemy>();
   BehaviorSubject<RedEnemy> redEnemyDied = BehaviorSubject<RedEnemy>();
+
+  int next(int min, int max) => min + random.nextInt(max - min);
+
+  double get randomX => next(30, maxX).toDouble();
+
+  double get randomY => next(30, maxY).toDouble();
 
   void addBlueEnemies() {
     gameRef.addAll(
       List.generate(
         blueAmountForCreation,
         (index) => BlueEnemy(
-          Vector2(
-            (random.nextInt(worldSize.x.toInt()) - tileSize).toDouble(),
-            (random.nextInt(worldSize.y.toInt()) - tileSize).toDouble(),
-          ),
+          Vector2(randomX, randomY),
           attack: blueAtack,
         ),
       ),
@@ -55,10 +63,7 @@ class EnemyCreator extends TimerComponent with HasGameRef {
       List.generate(
         redAmountForCreation,
         (index) => RedEnemy(
-          Vector2(
-            (random.nextInt(worldSize.x.toInt()) - tileSize).toDouble(),
-            (random.nextInt(worldSize.y.toInt()) - tileSize).toDouble(),
-          ),
+          Vector2(randomX, randomY),
           attack: redAtack,
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter/services.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/shared/player_sprite_sheet.dart';
@@ -80,12 +79,12 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
   void update(double dt) {
     if (currentState == PlayerState.attackMelee) {
       speed = 0;
-    }
-    if (currentState == PlayerState.idle) {
-      speed = 64;
       if (checkInterval('attack', attackInterval, dt)) {
         execAttack();
       }
+    }
+    if (currentState == PlayerState.idle) {
+      speed = 64;
     }
     super.update(dt);
   }

@@ -10,6 +10,7 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
   bool _seePlayerClose = false;
   double? attack;
   int attackInterval = blueBossEnemyConfig.attackInterval;
+  int attackId = 1001;
 
   bool trackedPlayer = false;
 
@@ -35,13 +36,17 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
     return super.onLoad();
   }
 
+  vaiProPlayer() {
+    moveTowardsTarget(target: gameRef.player!);
+  }
+
   @override
   void update(double dt) {
     _seePlayerClose = false;
 
     if (!trackedPlayer && gameRef.player != null) {
       trackedPlayer = true;
-      moveTowardsTarget<Player>(target: gameRef.player!);
+      //vaiProPlayer();
     }
 
     seePlayer(
@@ -54,7 +59,8 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
         _seePlayerClose = true;
         seeAndMoveToPlayer(
           closePlayer: (player) {
-            if (checkInterval('attack', attackInterval, dt)) {
+            if (checkInterval(
+                'attack', blueBossEnemyConfig.attackInterval, dt)) {
               execAttack();
             }
           },
@@ -84,7 +90,7 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
     super.die();
   }
 
-  void _playAttackAnimation(onFinish) {
+  void _playAttackAnimation() {
     Vector2 definedSize = blueBossEnemyConfig.size * 3;
     Vector2 offset = Vector2.all(-32);
     switch (lastDirection) {
@@ -95,7 +101,7 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
           BlueBossEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.left:
       case Direction.downLeft:
@@ -105,14 +111,14 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
           size: definedSize,
           offset: offset,
           flipX: true,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.down:
         animation?.playOnceOther(
           BlueBossEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.up:
         animation?.playOnceOther(
@@ -120,7 +126,7 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
           size: definedSize,
           offset: offset,
           flipY: true,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
 
       default:
@@ -128,37 +134,22 @@ class BlueBossEnemy extends SimpleEnemy with PathFinding {
           BlueBossEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
+          runToTheEnd: true,
         );
     }
   }
 
   void execAttack() {
-    _playAttackAnimation(() {
-      simpleAttackMelee(
-        size: blueBossEnemyConfig.size,
+    attackId++;
+    simpleAttackMelee(
+        size: Vector2.all(16),
         damage: blueBossEnemyConfig.attack,
-        interval: attackInterval,
-        animationRight: GravitySpriteSheet.sequence,
+        interval: 10,
+        id: attackId,
         execute: () {
           //Sounds.attackEnemyMelee();
-        },
-      );
-
-      /*simpleAttackRange(
-          size: Vector2.all(tileSize * 0.62),
-          damage: attack ?? blueEnemyConfig.attack,
-          interval: attackInterval,
-          execute: () {
-            //Sounds.attackEnemyMelee();
-          },
-          animationRight: BlueBossEnemySpriteSheet.idleRight,
-          animationDestroy: BlueBossEnemySpriteSheet.idleRight,
-          collision: CircleHitbox(
-            radius: 10.0,
-          ));
-          */
-    });
+          _playAttackAnimation();
+        });
   }
 
   @override

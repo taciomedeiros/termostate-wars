@@ -17,8 +17,8 @@ class MyWorld extends WorldMapByTiled {
 
   @override
   Future<void>? onLoad() {
-    FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('background_music.mp3');
+    //FlameAudio.bgm.initialize();
+    //FlameAudio.bgm.play('background_music.mp3');
 
     worldCenter = Vector2(mapSize.x / 2, mapSize.x / 2);
 

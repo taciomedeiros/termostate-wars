@@ -12,4 +12,14 @@ class GravitySpriteSheet {
           amountPerRow: 4,
         ),
       );
+
+  static Future<SpriteAnimation> get test => SpriteAnimation.load(
+        "effects/Gravity-SpriteSheet.png",
+        SpriteAnimationData.sequenced(
+          texturePosition: Vector2(0, 0),
+          amount: 1,
+          stepTime: 0.4,
+          textureSize: Vector2(96, 80),
+        ),
+      );
 }

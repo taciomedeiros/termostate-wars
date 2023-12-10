@@ -83,6 +83,7 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.left:
       case Direction.downLeft:
@@ -93,6 +94,7 @@ class BlueEnemy extends SimpleEnemy {
           offset: offset,
           flipX: true,
           onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.down:
         animation?.playOnceOther(
@@ -100,6 +102,7 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           onFinish: onFinish,
+          runToTheEnd: true,
         );
       case Direction.up:
         animation?.playOnceOther(
@@ -108,6 +111,7 @@ class BlueEnemy extends SimpleEnemy {
           offset: offset,
           flipY: true,
           onFinish: onFinish,
+          runToTheEnd: true,
         );
 
       default:
@@ -116,6 +120,7 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           onFinish: onFinish,
+          runToTheEnd: true,
         );
     }
   }

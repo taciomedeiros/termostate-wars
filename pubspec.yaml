@@ -32,6 +32,7 @@ flutter:
     - assets/images/enemy/
     - assets/images/enemy/red_boss.png
     - assets/audio/background_music.mp3
+    - assets/FontManifest.json
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

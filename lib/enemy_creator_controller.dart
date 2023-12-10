@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:bonfire/npc/enemy/simple_enemy.dart';
 import 'package:flame/components.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:thermostate_wars/enemies/blue_boss_enemy.dart';
 import 'package:thermostate_wars/enemies/blue_enemy.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/enemies/red_boss_enemy.dart';
@@ -80,10 +81,20 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
 
     if (blueDeadEnemies >= amountEnemies) {
       initBoss();
-      gameRef.add(RedBossEnemy(initialBossPosition, notifyDeath: onRedBossDie));
+      gameRef.add(
+        RedBossEnemy(
+          initialBossPosition,
+          notifyDeath: onRedBossDie,
+        ),
+      );
     } else if (redDeadEnemies >= amountEnemies) {
       initBoss();
-      gameRef.add(RedBossEnemy(initialBossPosition, notifyDeath: onRedBossDie));
+      gameRef.add(
+        BlueBossEnemy(
+          initialBossPosition,
+          notifyDeath: onRedBossDie,
+        ),
+      );
     }
   }
 

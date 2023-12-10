@@ -68,12 +68,12 @@ class GameController extends GameComponent {
       if (status == GameStatus.redBoss) {
         final npc = MageNpc(initialMagePosition);
         gameRef.add(npc);
-        showTalk(npc, endBlueEnemyDialog);
+        showTalk(npc, endRedEnemyDialog);
       }
       if (status == GameStatus.draw) {
         final npc = MageNpc(initialMagePosition);
         gameRef.add(npc);
-        showTalk(npc, endBlueEnemyDialog);
+        showTalk(npc, endMageEnemyDialog);
       }
     });
 

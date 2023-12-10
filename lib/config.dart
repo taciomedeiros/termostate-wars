@@ -58,7 +58,7 @@ final blueBossEnemyConfig = EnemyConfig(
 );
 
 final redBossEnemyConfig = EnemyConfig(
-  life: 20,
+  life: 10,
   size: Vector2.all(32),
   speed: 50,
   rangeVision: 500,

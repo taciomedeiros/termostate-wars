@@ -25,13 +25,11 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/maps/images/
     - assets/images/effects/
-    - assets/images/maps/images/lava/
     - assets/images/maps/
     - assets/images/player/player_rapier.png
     - assets/images/enemy/
-  
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # fonts:

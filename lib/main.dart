@@ -76,7 +76,7 @@ class _MyGameWidgetState extends State<MyGameWidget> {
                 ),
               ],
             ), // required
-      map: MyWorld('maps/stage_001.json'),
+      map: MyWorld('maps/thermostate_wars.json'),
       components: [GameController()],
       interface: MyGameInterface(),
       cameraConfig: CameraConfig(zoom: initialZoom),

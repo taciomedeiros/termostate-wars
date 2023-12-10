@@ -1,0 +1,14 @@
+{ "columns":8,
+ "image":"lava_ground.png",
+ "imageheight":336,
+ "imagewidth":128,
+ "margin":0,
+ "name":"lava_ground",
+ "spacing":0,
+ "tilecount":168,
+ "tiledversion":"1.10.2",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

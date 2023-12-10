@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/services.dart';
@@ -46,20 +47,22 @@ class _MyGameWidgetState extends State<MyGameWidget> {
   @override
   Widget build(BuildContext context) {
     return BonfireWidget(
-      showCollisionArea: true,
-      joystick: Joystick(
-        keyboardConfig: KeyboardConfig(
-          directionalKeys: KeyboardDirectionalKeys.arrows(),
-          acceptedKeys: [
-            LogicalKeyboardKey.space,
-          ],
-        ),
-        directional: JoystickDirectional(),
-      ), // required
+      //showCollisionArea: true,
+      joystick: kIsWeb
+          ? Joystick(
+              keyboardConfig: KeyboardConfig(
+                directionalKeys: KeyboardDirectionalKeys.arrows(),
+                acceptedKeys: [
+                  LogicalKeyboardKey.space,
+                ],
+              ),
+              //directional: JoystickDirectional(),
+            )
+          : null, // required
       map: MyWorld('maps/stage_001.json'),
       interface: MyGameInterface(),
-      cameraConfig: CameraConfig(zoom: 5),
-      player: MainChar(Vector2(173, 200)),
+      cameraConfig: CameraConfig(zoom: initialZoom),
+      player: MainChar(initialPlayerPosition),
     );
   }
 }

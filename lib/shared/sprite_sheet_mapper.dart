@@ -30,20 +30,41 @@ extension PlayerSpriteVector on PlayerSpriteRow {
   }
 }
 
-enum FireEnemySpriteRow { idleRight, walkRight, attackRight, attackDown, die }
+enum EnemySpriteRow { idleRight, walkRight, attackRight, attackDown, die }
 
-extension FireSpriteVector on FireEnemySpriteRow {
+extension EnemySpriteVector on EnemySpriteRow {
   Vector2 get vector {
     switch (this) {
-      case FireEnemySpriteRow.idleRight:
+      case EnemySpriteRow.idleRight:
         return Vector2(0, 3 * 64);
-      case FireEnemySpriteRow.walkRight:
+      case EnemySpriteRow.walkRight:
         return Vector2(0, 11 * 64);
-      case FireEnemySpriteRow.attackRight:
+      case EnemySpriteRow.attackRight:
         return Vector2(0, 21 * 64 + 3 * 192);
-      case FireEnemySpriteRow.attackDown:
+      case EnemySpriteRow.attackDown:
         return Vector2(0, 21 * 64 + 2 * 192);
-      case FireEnemySpriteRow.die:
+      case EnemySpriteRow.die:
+        return Vector2(0, 20 * 64);
+      default:
+        throw Exception('no sprite found');
+    }
+  }
+}
+
+enum MageEnemySpriteRow { idleRight, walkRight, attackRight, attackDown, die }
+
+extension MageEnemySpriteVector on MageEnemySpriteRow {
+  Vector2 get vector {
+    switch (this) {
+      case MageEnemySpriteRow.idleRight:
+        return Vector2(0, 3 * 64);
+      case MageEnemySpriteRow.walkRight:
+        return Vector2(0, 11 * 64);
+      case MageEnemySpriteRow.attackRight:
+        return Vector2(0, 21 * 64 + 3 * 192);
+      case MageEnemySpriteRow.attackDown:
+        return Vector2(0, 21 * 64 + 2 * 192);
+      case MageEnemySpriteRow.die:
         return Vector2(0, 20 * 64);
       default:
         throw Exception('no sprite found');

@@ -5,6 +5,8 @@ import 'package:thermostate_wars/blue_enemy.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/red_enemy.dart';
 
+enum EnemyCreatorStatus { running, stopped }
+
 class EnemyCreator extends TimerComponent with HasGameRef {
   final Random random = Random();
   final Vector2 worldSize;
@@ -20,6 +22,8 @@ class EnemyCreator extends TimerComponent with HasGameRef {
     2: 40,
     3: 80,
   };
+
+  EnemyCreatorStatus status = EnemyCreatorStatus.stopped;
 
   //final _halfWidth = Red.initialSize.x / 2;
 
@@ -58,7 +62,9 @@ class EnemyCreator extends TimerComponent with HasGameRef {
 
   @override
   void onTick() {
-    addRedEnemies();
-    addBlueEnemies();
+    if (status == EnemyCreatorStatus.running) {
+      addRedEnemies();
+      addBlueEnemies();
+    }
   }
 }

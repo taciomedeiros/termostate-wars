@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/material.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/shared/blue_enemy_sprite_sheet.dart';
 
@@ -127,6 +130,19 @@ class BlueEnemy extends SimpleEnemy {
         //Sounds.attackEnemyMelee();
       },
     );
+  }
+
+  @override
+  void receiveDamage(AttackFromEnum attacker, double damage, dynamic id) {
+    showDamage(
+      damage,
+      config: const TextStyle(
+        fontSize: 5,
+        color: Colors.white,
+        fontFamily: 'Normal',
+      ),
+    );
+    super.receiveDamage(attacker, damage, id);
   }
 
   @override

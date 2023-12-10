@@ -19,7 +19,6 @@ class RedEnemy extends SimpleEnemy {
 
   @override
   Future<void> onLoad() {
-    // TODO: implement onLoad
     add(
       RectangleHitbox(
         size: Vector2(3, 5),

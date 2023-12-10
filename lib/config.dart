@@ -1,7 +1,11 @@
 import 'package:bonfire/bonfire.dart';
 
 double tileSize = 16;
+double initialZoom = 5;
 Vector2 mapSize = Vector2.all(30);
+Vector2 initialPlayerPosition = Vector2(173, 200);
+Vector2 initialMagePosition = Vector2(150, 200);
+
 double timeInSecodsAppearingEnemies = 5;
 
 class PlayerConfig {}

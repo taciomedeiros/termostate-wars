@@ -7,7 +7,7 @@ class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
         "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
-          texturePosition: FireEnemySpriteRow.idleRight.vector,
+          texturePosition: EnemySpriteRow.idleRight.vector,
           amount: 4,
           stepTime: 0.4,
           textureSize: Vector2.all(64),
@@ -17,7 +17,7 @@ class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
         "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
-          texturePosition: FireEnemySpriteRow.walkRight.vector,
+          texturePosition: EnemySpriteRow.walkRight.vector,
           amount: 8,
           stepTime: 0.1,
           textureSize: Vector2.all(64),
@@ -27,7 +27,7 @@ class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get attackRight => SpriteAnimation.load(
         "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
-          texturePosition: FireEnemySpriteRow.attackRight.vector,
+          texturePosition: EnemySpriteRow.attackRight.vector,
           amount: 5,
           stepTime: 0.1,
           textureSize: Vector2.all(192),
@@ -37,7 +37,7 @@ class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get attackDown => SpriteAnimation.load(
         "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
-          texturePosition: FireEnemySpriteRow.attackDown.vector,
+          texturePosition: EnemySpriteRow.attackDown.vector,
           amount: 5,
           stepTime: 0.1,
           textureSize: Vector2.all(192),
@@ -46,7 +46,7 @@ class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get die => SpriteAnimation.load(
         "enemy/blue_enemy.png",
         SpriteAnimationData.sequenced(
-          texturePosition: FireEnemySpriteRow.attackDown.vector,
+          texturePosition: EnemySpriteRow.attackDown.vector,
           amount: 5,
           stepTime: 0.1,
           textureSize: Vector2.all(64),

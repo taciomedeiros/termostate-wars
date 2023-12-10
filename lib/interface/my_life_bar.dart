@@ -13,7 +13,6 @@ class MyLifeBarComponent extends InterfaceComponent {
       : super(
           id: 1,
           position: Vector2(20, 20),
-          //spriteUnselected: Sprite.load('health_ui.png'),
           size: Vector2(120, 40),
         );
 
@@ -28,9 +27,7 @@ class MyLifeBarComponent extends InterfaceComponent {
 
   @override
   void render(Canvas c) {
-    try {
-      _drawLife(c);
-    } catch (e) {}
+    _drawLife(c);
     super.render(c);
   }
 

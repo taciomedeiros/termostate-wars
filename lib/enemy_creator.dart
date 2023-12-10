@@ -1,6 +1,8 @@
 import 'dart:math';
 
+import 'package:bonfire/behavior/behavior.dart';
 import 'package:flame/components.dart';
+import 'package:rxdart/subjects.dart';
 import 'package:thermostate_wars/blue_enemy.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/red_enemy.dart';
@@ -28,7 +30,10 @@ class EnemyCreator extends TimerComponent with HasGameRef {
   //final _halfWidth = Red.initialSize.x / 2;
 
   EnemyCreator(this.worldSize)
-      : super(period: timeInSecodsAppearingEnemies, repeat: true);
+      : super(period: timeInSecondsAppearingEnemies, repeat: true);
+
+  BehaviorSubject<BlueEnemy> blueEnemyDied = BehaviorSubject<BlueEnemy>();
+  BehaviorSubject<RedEnemy> redEnemyDied = BehaviorSubject<RedEnemy>();
 
   void addBlueEnemies() {
     gameRef.addAll(

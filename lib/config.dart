@@ -3,10 +3,10 @@ import 'package:bonfire/bonfire.dart';
 double tileSize = 16;
 double initialZoom = 5;
 Vector2 mapSize = Vector2.all(30);
-Vector2 initialPlayerPosition = Vector2(173, 200);
-Vector2 initialMagePosition = Vector2(150, 200);
+Vector2 initialPlayerPosition = Vector2(200, 200);
+Vector2 initialMagePosition = Vector2(80, 200);
 
-double timeInSecodsAppearingEnemies = 5;
+double timeInSecondsAppearingEnemies = 5;
 
 class PlayerConfig {}
 
@@ -29,7 +29,7 @@ class EnemyConfig {
 }
 
 final redEnemyConfig = EnemyConfig(
-    life: 10,
+    life: 2,
     size: Vector2.all(16),
     speed: 5,
     rangeVision: 20,
@@ -37,7 +37,7 @@ final redEnemyConfig = EnemyConfig(
     attackInterval: 600);
 
 final blueEnemyConfig = EnemyConfig(
-  life: 10,
+  life: 2,
   size: Vector2.all(16),
   speed: 10,
   rangeVision: 20,

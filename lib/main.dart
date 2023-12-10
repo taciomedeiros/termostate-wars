@@ -4,11 +4,17 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/services.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/enemy_creator.dart';
+import 'package:thermostate_wars/game_controller.dart';
 import 'package:thermostate_wars/interface/my_game_interface.dart';
 import 'package:thermostate_wars/player.dart';
 import 'package:thermostate_wars/my_world.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (!kIsWeb) {
+    await Flame.device.setLandscape();
+    await Flame.device.fullScreen();
+  }
   runApp(const MyApp());
 }
 
@@ -56,10 +62,21 @@ class _MyGameWidgetState extends State<MyGameWidget> {
                   LogicalKeyboardKey.space,
                 ],
               ),
-              //directional: JoystickDirectional(),
             )
-          : null, // required
+          : Joystick(
+              directional: JoystickDirectional(color: Colors.black12),
+              actions: [
+                JoystickAction(
+                  actionId: PlayerAttackType.attackMelee,
+                  color: Colors.black12,
+                  opacityKnob: 0.6,
+                  size: 80,
+                  margin: const EdgeInsets.only(bottom: 50, right: 50),
+                ),
+              ],
+            ), // required
       map: MyWorld('maps/stage_001.json'),
+      components: [GameController()],
       interface: MyGameInterface(),
       cameraConfig: CameraConfig(zoom: initialZoom),
       player: MainChar(initialPlayerPosition),

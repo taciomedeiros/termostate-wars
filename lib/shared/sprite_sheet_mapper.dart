@@ -42,13 +42,22 @@ extension PlayerSpriteVector on PlayerSpriteRow {
   }
 }
 
-enum EnemySpriteRow { idleRight, walkRight, attackRight, attackDown, die }
+enum EnemySpriteRow {
+  idleRight,
+  idleDown,
+  walkRight,
+  attackRight,
+  attackDown,
+  die
+}
 
 extension EnemySpriteVector on EnemySpriteRow {
   Vector2 get vector {
     switch (this) {
       case EnemySpriteRow.idleRight:
         return Vector2(0, 3 * 64);
+      case EnemySpriteRow.idleDown:
+        return Vector2(0, 2 * 64);
       case EnemySpriteRow.walkRight:
         return Vector2(0, 11 * 64);
       case EnemySpriteRow.attackRight:

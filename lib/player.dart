@@ -21,10 +21,8 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
   double attack = 1;
   double pSpeed = 1;
   double maxSteam = 100;
+  int attackInterval = 300;
   PlayerState currentState = PlayerState.idle;
-
-  TextComponent textPosition = TextComponent(text: '', size: Vector2.all(.2));
-
   late BarLifeComponent lifeBar;
 
   MainChar(Vector2 position)
@@ -46,15 +44,18 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     super.onJoystickChangeDirectional(event);
   }
 
+  bool isAttack(JoystickActionEvent event) =>
+      event.id == LogicalKeyboardKey.space ||
+      event.id == PlayerAttackType.attackMelee;
+
   @override
   void onJoystickAction(JoystickActionEvent event) {
     if (hasGameRef && gameRef.sceneBuilderStatus.isRunning || isDead) {
       return;
     }
     if (event.event == ActionEvent.DOWN) {
-      if (event.id == LogicalKeyboardKey.space ||
-          event.id == PlayerAttackType.attackMelee) {
-        execAttack();
+      if (isAttack(event)) {
+        currentState = PlayerState.attackMelee;
       }
     }
 
@@ -63,7 +64,6 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
 
   @override
   Future<void> onLoad() {
-    //add(textPosition);
     add(
       RectangleHitbox(
         size: Vector2(3, 5),
@@ -83,6 +83,9 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
     }
     if (currentState == PlayerState.idle) {
       speed = 64;
+      if (checkInterval('attack', attackInterval, dt)) {
+        execAttack();
+      }
     }
     super.update(dt);
   }
@@ -116,6 +119,8 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
           onFinish: () => currentState = PlayerState.idle,
         );
       case Direction.up:
+      case Direction.upLeft:
+      case Direction.upRight:
         animation?.playOnceOther(
           PlayerAnimation.attackUp,
           size: definedSize,
@@ -133,13 +138,14 @@ class MainChar extends SimplePlayer with BlockMovementCollision {
   }
 
   Future<void> execAttack() async {
-    if (currentState == PlayerState.attackMelee) {
-      return;
-    }
+    // if (currentState == PlayerState.attackMelee) {
+    //   return;
+    // }
     currentState = PlayerState.attackMelee;
     _playAttackAnimation();
     await Future.delayed(
-        const Duration(milliseconds: 200)); // Adjust the duration as needed
+      const Duration(milliseconds: 200),
+    ); // Adjust the duration as needed
     simpleAttackMelee(
       size: Vector2.all(tileSize * 1),
       damage: attack,

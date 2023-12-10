@@ -62,19 +62,15 @@ class BlueEnemy extends SimpleEnemy {
 
   @override
   void die() {
-    gameRef.add(
-      AnimatedGameObject(
-        animation: BlueEnemySpriteSheet.die,
-        position: position,
-        size: blueEnemyConfig.size,
-        loop: false,
-      ),
+    animation?.playOnceOther(
+      BlueEnemyAnimation.die,
+      size: blueEnemyConfig.size,
     );
     removeFromParent();
     super.die();
   }
 
-  void _playAttackAnimation() {
+  void _playAttackAnimation(onFinish) {
     Vector2 definedSize = Vector2.all(48);
     Vector2 offset = Vector2.all(-16);
     switch (lastDirection) {
@@ -85,6 +81,7 @@ class BlueEnemy extends SimpleEnemy {
           BlueEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
+          onFinish: onFinish,
         );
       case Direction.left:
       case Direction.downLeft:
@@ -94,12 +91,14 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipX: true,
+          onFinish: onFinish,
         );
       case Direction.down:
         animation?.playOnceOther(
           BlueEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
+          onFinish: onFinish,
         );
       case Direction.up:
         animation?.playOnceOther(
@@ -107,6 +106,7 @@ class BlueEnemy extends SimpleEnemy {
           size: definedSize,
           offset: offset,
           flipY: true,
+          onFinish: onFinish,
         );
 
       default:
@@ -114,6 +114,7 @@ class BlueEnemy extends SimpleEnemy {
           BlueEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
+          onFinish: onFinish,
         );
     }
   }
@@ -121,15 +122,16 @@ class BlueEnemy extends SimpleEnemy {
   // 192 - 64
 
   void execAttack() {
-    _playAttackAnimation();
-    simpleAttackMelee(
-      size: Vector2.all(tileSize * 0.62),
-      damage: attack ?? blueEnemyConfig.attack,
-      interval: attackInterval,
-      execute: () {
-        //Sounds.attackEnemyMelee();
-      },
-    );
+    _playAttackAnimation(() {
+      simpleAttackMelee(
+        size: Vector2.all(tileSize * 0.62),
+        damage: attack ?? blueEnemyConfig.attack,
+        interval: attackInterval,
+        execute: () {
+          //Sounds.attackEnemyMelee();
+        },
+      );
+    });
   }
 
   @override

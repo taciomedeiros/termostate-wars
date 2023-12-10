@@ -8,7 +8,17 @@ class MageEnemySpriteSheet {
         "enemy/mage_enemy.png",
         SpriteAnimationData.sequenced(
           texturePosition: EnemySpriteRow.idleRight.vector,
-          amount: 4,
+          amount: 6,
+          stepTime: 0.4,
+          textureSize: Vector2.all(64),
+        ),
+      );
+
+  static Future<SpriteAnimation> get idleDown => SpriteAnimation.load(
+        "enemy/mage_enemy.png",
+        SpriteAnimationData.sequenced(
+          texturePosition: EnemySpriteRow.idleDown.vector,
+          amount: 6,
           stepTime: 0.4,
           textureSize: Vector2.all(64),
         ),

@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/shared/sprite_sheet_mapper.dart';
 
-enum BlueEnemyAnimation { attackRight, attackDown }
+enum BlueEnemyAnimation { attackRight, attackDown, die }
 
 class BlueEnemySpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
@@ -60,5 +60,6 @@ class BlueEnemySpriteSheet {
           others: {
             BlueEnemyAnimation.attackRight: attackRight,
             BlueEnemyAnimation.attackDown: attackDown,
+            BlueEnemyAnimation.die: die,
           });
 }

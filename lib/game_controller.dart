@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/config.dart';
-import 'package:thermostate_wars/enemy_creator.dart';
+import 'package:thermostate_wars/enemy_creator_controller.dart';
 
 class GameController extends GameComponent {
   int temperature = 0;
-  EnemyCreator enemyCreator = EnemyCreator(mapSize * tileSize);
+  EnemyCreatorController enemyCreator =
+      EnemyCreatorController(mapSize * tileSize);
   Map<String, int> killedEnemies = {"blue": 0, "red": 0};
   bool isInitialized = false;
   bool startEnemyCreation = false;

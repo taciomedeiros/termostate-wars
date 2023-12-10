@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/services.dart';
 import 'package:thermostate_wars/config.dart';
-import 'package:thermostate_wars/enemy_creator.dart';
+import 'package:thermostate_wars/enemy_creator_controller.dart';
 import 'package:thermostate_wars/game_controller.dart';
 import 'package:thermostate_wars/interface/my_game_interface.dart';
 import 'package:thermostate_wars/player.dart';
@@ -43,7 +43,8 @@ class MyGameWidget extends StatefulWidget {
 }
 
 class _MyGameWidgetState extends State<MyGameWidget> {
-  EnemyCreator enemyCreator = EnemyCreator(mapSize * tileSize);
+  EnemyCreatorController enemyCreator =
+      EnemyCreatorController(mapSize * tileSize);
 
   @override
   void initState() {

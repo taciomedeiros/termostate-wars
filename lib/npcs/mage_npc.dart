@@ -3,12 +3,12 @@ import 'package:flutter/animation.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/dialog_controller.dart';
 import 'package:thermostate_wars/game_controller.dart';
-import 'package:thermostate_wars/shared/mage_enemy_sprite_sheet.dart';
+import 'package:thermostate_wars/npcs/mage_enemy_sprite_sheet.dart';
 
-class MageEnemy extends SimpleNpc with BlockMovementCollision {
+class MageNpc extends SimpleNpc with BlockMovementCollision {
   bool initializedDialog = false;
 
-  MageEnemy(Vector2 position)
+  MageNpc(Vector2 position)
       : super(
           position: position,
           size: Vector2.all(16),
@@ -23,6 +23,15 @@ class MageEnemy extends SimpleNpc with BlockMovementCollision {
         curve: Curves.easeInOut,
       ),
       zoom: zoom,
+    );
+
+    gameRef.add(
+      AnimatedGameObject(
+        animation: EffectsSpriteSheet.smokeExplosion(),
+        position: position,
+        size: Vector2(32, 32),
+        loop: false,
+      ),
     );
 
     final gameControllerList = gameRef.query<GameController>();

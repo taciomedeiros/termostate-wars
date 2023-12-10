@@ -57,3 +57,10 @@ Authors: Benjamin K. Smith (BenCreating), bluecarrot16, TheraHedwig, Evert, Muff
 
 - weapon/magic/simple_staff/female/simple_staff.png: by Dr. Jamgo. License(s): CC0. 
     - https://opengameart.org/content/lpc-simple-staff
+
+
+
+
+Particle of smoke
+Artwork created by Raphael Hatencia (@RaphaelHatencia) at RagnaPixel Studio (@ragnapixel)
+https://ragnapixel.itch.io/particle-fx

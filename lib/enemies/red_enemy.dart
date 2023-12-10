@@ -1,21 +1,20 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/material.dart';
 import 'package:thermostate_wars/config.dart';
-import 'package:thermostate_wars/shared/blue_enemy_sprite_sheet.dart';
+import 'package:thermostate_wars/enemies/red_enemy_sprite_sheet.dart';
 
-class BlueEnemy extends SimpleEnemy {
+class RedEnemy extends SimpleEnemy {
   bool _seePlayerClose = false;
   double? attack;
-  int attackInterval = blueEnemyConfig.attackInterval;
+  int attackInterval = 600;
 
-  BlueEnemy(Vector2 position, {this.attack})
+  RedEnemy(Vector2 position, {this.attack})
       : super(
           position: position, //required
-          size: blueEnemyConfig.size, //required
-          life: blueEnemyConfig.life,
-          speed: blueEnemyConfig.speed,
+          size: redEnemyConfig.size, //required
+          life: redEnemyConfig.life,
+          speed: redEnemyConfig.speed,
           initDirection: Direction.right,
-          animation: BlueEnemySpriteSheet.simpleDirectionAnimation,
+          animation: RedEnemySpriteSheet.simpleDirectionAnimation,
         );
 
   @override
@@ -44,10 +43,10 @@ class BlueEnemy extends SimpleEnemy {
               execAttack();
             }
           },
-          radiusVision: tileSize * blueEnemyConfig.rangeVision,
+          radiusVision: tileSize * redEnemyConfig.rangeVision,
         );
       },
-      radiusVision: tileSize * blueEnemyConfig.rangeVision,
+      radiusVision: tileSize * redEnemyConfig.rangeVision,
     );
     if (!_seePlayerClose) {
       seeAndMoveToAttackRange(
@@ -60,15 +59,19 @@ class BlueEnemy extends SimpleEnemy {
 
   @override
   void die() {
-    animation?.playOnceOther(
-      BlueEnemyAnimation.die,
-      size: blueEnemyConfig.size,
+    gameRef.add(
+      AnimatedGameObject(
+        animation: RedEnemySpriteSheet.die,
+        position: position,
+        size: redEnemyConfig.size,
+        loop: false,
+      ),
     );
     removeFromParent();
     super.die();
   }
 
-  void _playAttackAnimation(onFinish) {
+  void _playAttackAnimation() {
     Vector2 definedSize = Vector2.all(48);
     Vector2 offset = Vector2.all(-16);
     switch (lastDirection) {
@@ -76,43 +79,38 @@ class BlueEnemy extends SimpleEnemy {
       case Direction.downRight:
       case Direction.upRight:
         animation?.playOnceOther(
-          BlueEnemyAnimation.attackRight,
+          RedEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
         );
       case Direction.left:
       case Direction.downLeft:
       case Direction.upLeft:
         animation?.playOnceOther(
-          BlueEnemyAnimation.attackRight,
+          RedEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
           flipX: true,
-          onFinish: onFinish,
         );
       case Direction.down:
         animation?.playOnceOther(
-          BlueEnemyAnimation.attackDown,
+          RedEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
         );
       case Direction.up:
         animation?.playOnceOther(
-          BlueEnemyAnimation.attackDown,
+          RedEnemyAnimation.attackDown,
           size: definedSize,
           offset: offset,
           flipY: true,
-          onFinish: onFinish,
         );
 
       default:
         animation?.playOnceOther(
-          BlueEnemyAnimation.attackRight,
+          RedEnemyAnimation.attackRight,
           size: definedSize,
           offset: offset,
-          onFinish: onFinish,
         );
     }
   }
@@ -120,29 +118,15 @@ class BlueEnemy extends SimpleEnemy {
   // 192 - 64
 
   void execAttack() {
-    _playAttackAnimation(() {
-      simpleAttackMelee(
-        size: Vector2.all(tileSize * 0.62),
-        damage: attack ?? blueEnemyConfig.attack,
-        interval: attackInterval,
-        execute: () {
-          //Sounds.attackEnemyMelee();
-        },
-      );
-    });
-  }
-
-  @override
-  void receiveDamage(AttackFromEnum attacker, double damage, dynamic id) {
-    showDamage(
-      damage,
-      config: const TextStyle(
-        fontSize: 5,
-        color: Colors.white,
-        fontFamily: 'Normal',
-      ),
+    _playAttackAnimation();
+    simpleAttackMelee(
+      size: Vector2.all(tileSize * 0.62),
+      damage: attack ?? redEnemyConfig.attack,
+      interval: attackInterval,
+      execute: () {
+        //Sounds.attackEnemyMelee();
+      },
     );
-    super.receiveDamage(attacker, damage, id);
   }
 
   @override

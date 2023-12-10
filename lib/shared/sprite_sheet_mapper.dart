@@ -92,3 +92,16 @@ extension MageEnemySpriteVector on MageEnemySpriteRow {
     }
   }
 }
+
+enum GravityEffectSpriteRow { sequence }
+
+extension GravityEffectSpriteVector on GravityEffectSpriteRow {
+  Vector2 get vector {
+    switch (this) {
+      case GravityEffectSpriteRow.sequence:
+        return Vector2(0, 3 * 64);
+      default:
+        throw Exception('no sprite found');
+    }
+  }
+}

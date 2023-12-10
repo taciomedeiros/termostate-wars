@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/config.dart';
-import 'package:thermostate_wars/mage_enemy.dart';
+import 'package:thermostate_wars/npcs/mage_npc.dart';
 import 'package:thermostate_wars/wall.dart';
 
 class MyWorld extends WorldMapByTiled {
@@ -16,7 +16,7 @@ class MyWorld extends WorldMapByTiled {
   Future<void>? onLoad() {
     worldCenter = Vector2(mapSize.x / 2, mapSize.x / 2);
 
-    gameRef.add(MageEnemy(initialMagePosition));
+    gameRef.add(MageNpc(initialMagePosition));
 
     return super.onLoad();
   }

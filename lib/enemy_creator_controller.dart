@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:thermostate_wars/blue_enemy.dart';
+import 'package:thermostate_wars/enemies/blue_enemy.dart';
 import 'package:thermostate_wars/config.dart';
-import 'package:thermostate_wars/red_enemy.dart';
+import 'package:thermostate_wars/enemies/red_enemy.dart';
 
 enum EnemyCreatorStatus { running, stopped }
 
-class EnemyCreator extends TimerComponent with HasGameRef {
+class EnemyCreatorController extends TimerComponent with HasGameRef {
   final Random random = Random();
   final Vector2 worldSize;
 
@@ -31,7 +31,7 @@ class EnemyCreator extends TimerComponent with HasGameRef {
 
   //final _halfWidth = Red.initialSize.x / 2;
 
-  EnemyCreator(this.worldSize)
+  EnemyCreatorController(this.worldSize)
       : super(period: timeInSecondsAppearingEnemies, repeat: true) {
     maxX = (worldSize.x.toInt() - tileSize * 5).toInt();
     maxY = (worldSize.y.toInt() - tileSize * 2).toInt();

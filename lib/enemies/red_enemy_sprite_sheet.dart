@@ -46,9 +46,9 @@ class RedEnemySpriteSheet {
   static Future<SpriteAnimation> get die => SpriteAnimation.load(
         "enemy/red_enemy.png",
         SpriteAnimationData.sequenced(
-          texturePosition: EnemySpriteRow.attackDown.vector,
-          amount: 5,
-          stepTime: 0.1,
+          texturePosition: EnemySpriteRow.die.vector,
+          amount: 6,
+          stepTime: 0.4,
           textureSize: Vector2.all(64),
         ),
       );

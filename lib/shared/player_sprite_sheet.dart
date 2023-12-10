@@ -89,7 +89,7 @@ class PlayerSpriteSheet {
         SpriteAnimationData.sequenced(
           texturePosition: PlayerSpriteRow.die.vector,
           amount: 6,
-          stepTime: 0.1,
+          stepTime: 0.4,
           textureSize: Vector2.all(64),
         ),
       );

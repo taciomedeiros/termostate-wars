@@ -63,9 +63,8 @@ class BlueEnemy extends SimpleEnemy {
   void die() {
     notifyDeath?.call(this);
 
-    animation?.playOnceOther(
-      BlueEnemyAnimation.die,
-      size: blueEnemyConfig.size,
+    animation?.playOnce(
+      BlueEnemySpriteSheet.die,
     );
     removeFromParent();
     super.die();
@@ -124,8 +123,6 @@ class BlueEnemy extends SimpleEnemy {
         );
     }
   }
-
-  // 192 - 64
 
   void execAttack() {
     _playAttackAnimation(() {

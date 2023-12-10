@@ -5,7 +5,9 @@ import 'package:flame/components.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:thermostate_wars/enemies/blue_enemy.dart';
 import 'package:thermostate_wars/config.dart';
+import 'package:thermostate_wars/enemies/red_boss_enemy.dart';
 import 'package:thermostate_wars/enemies/red_enemy.dart';
+import 'package:thermostate_wars/game_controller.dart';
 
 enum EnemyCreatorStatus { running, stopped }
 
@@ -21,6 +23,8 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
   int blueAmountForCreation = 1;
   double blueAtack = blueEnemyConfig.attack;
   double redAtack = redEnemyConfig.attack;
+
+  bool isCreatedBoss = false;
 
   Map<int, int> enemiesByStage = {
     1: 20,
@@ -38,6 +42,9 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
 
   BehaviorSubject<BlueEnemy> blueEnemyDied = BehaviorSubject<BlueEnemy>();
   BehaviorSubject<RedEnemy> redEnemyDied = BehaviorSubject<RedEnemy>();
+  BehaviorSubject<GameStatus> gameStatus = BehaviorSubject<GameStatus>();
+  int blueDeadEnemies = 0;
+  int redDeadEnemies = 0;
 
   int next(int min, int max) => min + random.nextInt(max - min);
 
@@ -45,13 +52,52 @@ class EnemyCreatorController extends TimerComponent with HasGameRef {
 
   double get randomY => next(30, maxY).toDouble();
 
+  void onBlueBossDie(SimpleEnemy enemy) {
+    gameStatus.add(GameStatus.blueBoss);
+  }
+
+  void onRedBossDie(SimpleEnemy enemy) {
+    gameStatus.add(GameStatus.redBoss);
+  }
+
+  void onFinishEqualGames() {
+    gameStatus.add(GameStatus.draw);
+  }
+
+  void initBoss() {
+    isCreatedBoss = true;
+    status = EnemyCreatorStatus.stopped;
+  }
+
+  void checkBossCondition() {
+    if (isCreatedBoss) {
+      return;
+    }
+
+    const amountEnemies = 10;
+
+    if (blueDeadEnemies == redDeadEnemies && redDeadEnemies == amountEnemies) {}
+
+    if (blueDeadEnemies >= amountEnemies) {
+      initBoss();
+      gameRef.add(RedBossEnemy(initialBossPosition, notifyDeath: onRedBossDie));
+    } else if (redDeadEnemies >= amountEnemies) {
+      initBoss();
+      gameRef.add(RedBossEnemy(initialBossPosition, notifyDeath: onRedBossDie));
+    }
+  }
+
   void enemyCreatorNotifyDeath(SimpleEnemy enemy) {
     if (enemy is BlueEnemy) {
       blueEnemyDied.add(enemy);
+      blueDeadEnemies++;
+      checkBossCondition();
     }
 
     if (enemy is RedEnemy) {
       redEnemyDied.add(enemy);
+      redDeadEnemies++;
+      checkBossCondition();
     }
   }
 

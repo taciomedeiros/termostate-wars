@@ -4,6 +4,12 @@ import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/enemy_creator_controller.dart';
 
+enum GameStatus {
+  redBoss,
+  blueBoss,
+  draw,
+}
+
 class GameController extends GameComponent {
   int temperature = 0;
   EnemyCreatorController enemyCreator =

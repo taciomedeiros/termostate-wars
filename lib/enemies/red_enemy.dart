@@ -120,8 +120,6 @@ class RedEnemy extends SimpleEnemy {
     }
   }
 
-  // 192 - 64
-
   void execAttack() {
     _playAttackAnimation();
     simpleAttackMelee(

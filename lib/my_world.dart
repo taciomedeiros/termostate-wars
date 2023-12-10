@@ -1,6 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/enemies/red_boss_enemy.dart';
+import 'package:thermostate_wars/npcs/mage_npc.dart';
 import 'package:thermostate_wars/wall.dart';
 import 'package:flame_audio/flame_audio.dart';
 
@@ -20,9 +21,7 @@ class MyWorld extends WorldMapByTiled {
 
     worldCenter = Vector2(mapSize.x / 2, mapSize.x / 2);
 
-    //gameRef.add(MageNpc(initialMagePosition));
-    gameRef.add(
-        RedBossEnemy(initialBossPosition, notifyDeath: (SimpleEnemy enemy) {}));
+    gameRef.add(MageNpc(initialMagePosition));
 
     return super.onLoad();
   }

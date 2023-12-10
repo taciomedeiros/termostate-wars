@@ -79,7 +79,7 @@ class _MyGameWidgetState extends State<MyGameWidget> {
       map: MyWorld('maps/thermostate_wars.json'),
       components: [GameController()],
       interface: MyGameInterface(),
-      cameraConfig: CameraConfig(zoom: initialZoom),
+      cameraConfig: CameraConfig(zoom: initialZoom, moveOnlyMapArea: true),
       player: MainChar(initialPlayerPosition),
     );
   }

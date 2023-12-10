@@ -147,7 +147,6 @@ class BlueEnemy extends SimpleEnemy {
 
   @override
   void render(Canvas canvas) {
-    // do anything
     super.render(canvas);
   }
 }

@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/animation.dart';
 import 'package:thermostate_wars/config.dart';
 import 'package:thermostate_wars/dialog_controller.dart';
+import 'package:thermostate_wars/effects/gravity_sprite_sheet.dart';
 import 'package:thermostate_wars/game_controller.dart';
 import 'package:thermostate_wars/npcs/mage_enemy_sprite_sheet.dart';
 
@@ -16,22 +17,27 @@ class MageNpc extends SimpleNpc with BlockMovementCollision {
           animation: MageEnemySpriteSheet.simpleDirectionAnimation,
         );
 
+  @override
+  Future<void> onLoad() {
+    return super.onLoad();
+  }
+
   void hideTalk(zoom) {
+    gameRef.add(
+      AnimatedGameObject(
+        animation: GravitySpriteSheet.sequence,
+        position: position,
+        size: Vector2(16, 16),
+        loop: false,
+      ),
+    );
+
     gameRef.camera.moveToPlayerAnimated(
       effectController: EffectController(
         duration: 0.5,
         curve: Curves.easeInOut,
       ),
       zoom: zoom,
-    );
-
-    gameRef.add(
-      AnimatedGameObject(
-        animation: EffectsSpriteSheet.smokeExplosion(),
-        position: position,
-        size: Vector2(32, 32),
-        loop: false,
-      ),
     );
 
     final gameControllerList = gameRef.query<GameController>();
